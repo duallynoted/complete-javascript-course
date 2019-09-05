@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
 
 .clearfix::after {
@@ -45,7 +45,20 @@ body {
     padding: 100px;
 }
 
-
+.score-threshold {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 34rem;
+    color: #555;
+    font-size: 1.8rem;
+    font-family: Lato, serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+.score-threshold:focus {
+    outline: none;
+}
 
 /**********************************************
 *** PLAYERS
@@ -80,7 +93,7 @@ body {
     color: #EB4D4D;
     top: -7px;
     right: 10px;
-    
+
 }
 
 .player-current-box {
@@ -143,7 +156,15 @@ i {
 
 .dice {
     position: absolute;
-    left: 50%;
+    left: 44%;
+    top: 178px;
+    transform: translateX(-50%);
+    height: 100px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+.dice-right {
+    position: absolute;
+    right: 34%;
     top: 178px;
     transform: translateX(-50%);
     height: 100px;
