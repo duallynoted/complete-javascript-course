@@ -105,56 +105,163 @@
 // 	job: {value: 'Designer'}
 // })
 //
-let marriedPrototypeProperty = {
-	married: true
-};
-let lastname = {
-	lastName: 'Ridley'
-};
-
-let daniel = Object.assign(marriedPrototypeProperty, lastname, {
-	name: { value: 'Daniel' },
-	fat: { value: true }
-});
-console.log(daniel);
+// let marriedPrototypeProperty = {
+// 	married: true
+// };
+// let lastname = {
+// 	lastName: 'Ridley'
+// };
+//
+// let daniel = Object.assign(marriedPrototypeProperty, lastname, {
+// 	name: { value: 'Daniel' },
+// 	fat: { value: true }
+// });
+// console.log(daniel);
 
 /**
  Primitives vs. Objects
  **/
 //Object variables don't actually hold the data, they point to where the data is stored
 
-let a = 42;
-let b = a;
-b = 95;
-console.log(a, b);
-
-let obj1 = {
-	name: 'John',
-	age: 45
-};
-let obj2 = obj1;
-console.log(obj1.age, obj2.age);
-
-//functions
-
-let age = 27;
-let obj = {
-	name: 'Jonas',
-	city: 'Lisbon'
-};
-
-function change (a, b) {
-	a = 30;
-	b.city = 'San Franciso';
-}
-
-change(age, obj);
-console.log(age);
-console.log(obj.city);
+// let a = 42;
+// let b = a;
+// b = 95;
+// console.log(a, b);
+//
+// let obj1 = {
+// 	name: 'Daniel',
+// 	age: 39
+// };
+// let obj2 = obj1;
+// let obj3 = obj1;
+// obj1.age = 40;
+// // obj3.name = 'Tony'
+// console.log(obj1.age, obj1.name);
+// console.log(obj2.age, obj2.name);
+// console.log(obj3.age, obj3.name);
+//
+// //functions
+//
+// let age = 39;
+// let obj = {
+// 	name: 'Daniel',
+// 	city: 'Shoreview',
+// };
+//
+// function change (a, b) {
+// 	a = 23;
+// 	b.city = 'Minneapolis';
+//
+// }
+//
+// change(age, obj);
+// console.log(age, obj);
+//When you pass an object in to a function, you're actually passing the REFERENCE to that object, not the object itself
 
 /**
- Everything is an Object: Prototype and Inheritance Chain
+ First Class Functions: Passing Functions as Arguments
  **/
+
+//A function is an instance of the Object type
+//It behaves like any other object
+//We can store functions in variables
+//We can pass a function as an argument to another function
+//We can return a function from a function
+//This is all FIRST CLASS FUNCTIONS
+
+// let years = [1990, 1965, 1937, 2005, 1998, 1981, 1980];
+//
+// function arrayCalc (arr, fn) {
+// 	let arrRes = [];
+// 	for (let i = 0; i < arr.length; i++) {
+// 		arrRes.push(fn(arr[i]));
+// 	}
+// 	return arrRes;
+// }
+//
+// function calculateAge (el) {
+// 	return 2019 - el;
+// }
+//
+// let ages = arrayCalc(years, calculateAge);
+// console.log(ages);
+//
+// let ridleyAges = [2.5, 5, 39, 38];
+//
+// function arrayCalc (arr, fn) {
+// 	let arrRes = [];
+// 	for (let i = 0; i < arr.length; i++) {
+// 		arrRes.push(fn(arr[i]));
+// 	}
+// 	return arrRes;
+// }
+//
+// function addAge (el) {
+// 	return 2019 + el;
+// }
+//
+// let doubleOurAge = arrayCalc(ridleyAges, addAge);
+// console.log(doubleOurAge);
+//
+// function isFullAge (el) {
+// 	return el >= 18;
+// }
+//
+// let fulAge = arrayCalc(ages, isFullAge);
+// console.log(fulAge);
+//
+// function maxHeartRate (el) {
+// 	if (el >= 18 && el <= 81) {
+// 		return Math.round(206.9 - (0.67 * el));
+// 	} else {
+// 		return -1;
+// 	}
+// }
+//
+// let heartRate = arrayCalc(ages, maxHeartRate);
+// console.log(heartRate);
+
+let salaries = [23000, 42500, 97000];
+
+function arrayCalc (array, funktion) {
+	let arrayResults = [];
+	for (let i = 0; i < array.length; i++) {
+		arrayResults.push(funktion(array[i]));
+	}
+	return arrayResults;
+}
+
+function raisePercentage (el) {
+	if (el > 85000) {
+		return el * .10 + el;
+	} else if (el > 40000 && el < 84000) {
+		return el * .15 + el;
+	} else if (el < 39000) {
+		return el * .20 + el;
+	} else {
+		return el;
+	}
+}
+
+let currentRaises = arrayCalc(salaries, raisePercentage);
+console.log(currentRaises);
+
+function fizzBuzz (num) {
+	if (num % 15 === 0) {
+		return 'fizzBuzz';
+	} else if (num % 5 === 0) {
+		return 'fizz';
+	} else if (num % 3 === 0) {
+		return 'Buzz';
+	} else {
+		return num.toString();
+	}
+}
+
+for (let i = 0; i <= 100; i++) {
+	console.log(fizzBuzz(i));
+}
+
 /**
  Everything is an Object: Prototype and Inheritance Chain
  **/
