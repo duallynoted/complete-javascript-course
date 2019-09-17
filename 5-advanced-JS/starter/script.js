@@ -221,47 +221,144 @@
 // let heartRate = arrayCalc(ages, maxHeartRate);
 // console.log(heartRate);
 
-let salaries = [23000, 42500, 97000];
+// let salaries = [23000, 42500, 97000];
+//
+// function arrayCalc (array, funktion) {
+// 	let arrayResults = [];
+// 	for (let i = 0; i < array.length; i++) {
+// 		arrayResults.push(funktion(array[i]));
+// 	}
+// 	return arrayResults;
+// }
+//
+// function raisePercentage (el) {
+// 	if (el > 85000) {
+// 		return el * .10 + el;
+// 	} else if (el > 40000 && el < 84000) {
+// 		return el * .15 + el;
+// 	} else if (el < 39000) {
+// 		return el * .20 + el;
+// 	} else {
+// 		return el;
+// 	}
+// }
+//
+// let currentRaises = arrayCalc(salaries, raisePercentage);
+// console.log(currentRaises);
+//
+// function fizzBuzz (num) {
+// 	if (num % 15 === 0) {
+// 		return 'fizzBuzz';
+// 	} else if (num % 5 === 0) {
+// 		return 'fizz';
+// 	} else if (num % 3 === 0) {
+// 		return 'Buzz';
+// 	} else {
+// 		return num.toString();
+// 	}
+// }
+//
+// for (let i = 0; i <= 100; i++) {
+// 	// console.log(fizzBuzz(i));
+// }
+//
+// let bills = [1000, 900, 45, 1700, 210, 600, 367, 500]
+// function practiceArray (arr, fn) {
+// 	let arrayResults = [];
+// 	for (let i = 0; i < arr.length; i++) {
+// 		arrayResults.push(fn(arr[i]));
+// 	}
+// 	return arrayResults
+// }
+//
+// function leftAfterBills (el) {
+// 	return 9000 - el
+// }
+//
+// let monthlyBudget = practiceArray(bills, leftAfterBills)
+// console.log(monthlyBudget)
 
-function arrayCalc (array, funktion) {
-	let arrayResults = [];
-	for (let i = 0; i < array.length; i++) {
-		arrayResults.push(funktion(array[i]));
-	}
-	return arrayResults;
-}
+/**
+ First Class Functions: Functions Returning Functions
+ **/
 
-function raisePercentage (el) {
-	if (el > 85000) {
-		return el * .10 + el;
-	} else if (el > 40000 && el < 84000) {
-		return el * .15 + el;
-	} else if (el < 39000) {
-		return el * .20 + el;
-	} else {
-		return el;
-	}
-}
+// function interviewQuestion(job) {
+// 	if(job === 'designer') {
+// 		return function (name, title) {
+// 			console.log(name + ', since you are a ' + title + ', can you please explain what UX design is?')
+// 		}
+// 	} else if(job === 'teacher') {
+// 		return function (name) {
+// 			console.log('What subject do you teach, ' + name + '?')
+// 		}
+// 	} else if(job === 'developer') {
+// 		return function (name, title) {
+// 			console.log('His name is ' + name + ', and he is a ' + title + '.')
+// 		}
+// 	}
+// 	else {
+// 		return function (name) {
+// 			console.log('Hello, ' + name + ', what do you do?')
+// 		}
+// 	}
+// }
+// interviewQuestion('')('Daniel')
+// interviewQuestion('developer')('Ujwal', 'Director of Web Services')
+//
+// // let teacherQuestion = interviewQuestion('teacher')
+// // teacherQuestion('John')
+// //
+// let designerQuestion = interviewQuestion('designer')
+// designerQuestion('Mason', 'Senior UX Designer')
+//
+// let shrugQuestion = interviewQuestion()
+// shrugQuestion('Julie')
 
-let currentRaises = arrayCalc(salaries, raisePercentage);
-console.log(currentRaises);
+/**
+ Immediately Invoked Function Expressions (IIFE)
+ **/
 
-function fizzBuzz (num) {
-	if (num % 15 === 0) {
-		return 'fizzBuzz';
-	} else if (num % 5 === 0) {
-		return 'fizz';
-	} else if (num % 3 === 0) {
-		return 'Buzz';
-	} else {
-		return num.toString();
-	}
-}
+// //IFFEs are good for when you want data privacy.
+// //You can only call an iffe once, because the function is not assigned to a variable, and that is what we want here
+// // They also don't interfere with other variables in the global execution context.
 
-for (let i = 0; i <= 100; i++) {
-	console.log(fizzBuzz(i));
-}
+// function game () {
+// 	var score = Math.random() * 10;
+// 	console.log(score >= 5);
+// }
+//
+// game()
+
+// (function () {
+// 	var score = Math.random() * 10;
+// 	console.log(score >= 5);
+// })();
+// // console.log(score) --Can't see the score here because it is outside the scope of the function
+//
+// (
+// 	function (goodLuck) {
+// 		var score = Math.random() * 10;
+// 		console.log(score >= 5 - goodLuck);
+// 	}
+// )(5);
+//
+//
+// //My example
+// (
+// 	function (el) {
+// 		var realAge = 2019 - el;
+// 		console.log(realAge);
+// 	}
+// )(1949);
+// console.log(realAge)
 
 /**
  Everything is an Object: Prototype and Inheritance Chain
  **/
+/**
+ Everything is an Object: Prototype and Inheritance Chain
+ **/
+/**
+ Everything is an Object: Prototype and Inheritance Chain
+ **/
+
