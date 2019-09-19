@@ -353,8 +353,79 @@
 // console.log(realAge)
 
 /**
- Everything is an Object: Prototype and Inheritance Chain
+ Closures
  **/
+
+//An inner function always has access to the variables and parameters of its outer function, even after the outer function has returned
+//after the function is returned, it is taken off the execution stack, so we can't access the variables. right? nope. the secret to closures is
+//that we're storing those variables, so they're still in the same scope chain as they were before. it still sits there in memory and can be accessed
+//the current execution context has closed in on the outer variable object so it can use it, and that's why it's called a closure
+
+
+
+function retirement (retirementAge) {
+	let a = ' years left until retirement.'
+	return function (yearOfBirth) {
+		let age = 2019 - yearOfBirth
+		console.log(retirementAge - age + a)  //here, the inner function has access to 'retirementAge' and 'a' even though they're declared in
+									         //in the outer function
+	}
+}
+let retirementUS = retirement(66);
+retirementUS(1980)
+
+let retirementGermany = retirement(65);
+let retirementIceland = retirement(67)
+retirementGermany(1980)
+retirementIceland(1980)
+
+
+function interviewQuestion (job) {
+	let des = ', can you please explain what UX design is?'
+	let teach = 'What subject do you teach, '
+	let shrug = ', what do you do?'
+	return function (name) {
+		if(job === 'designer') {
+			console.log(name + des)
+		}else if(job === 'teacher'){
+			console.log(teach + name + '?')
+		} else {
+			console.log(name + shrug)
+		}
+	}
+}
+
+
+interviewQuestion('designer')('Dustin')
+interviewQuestion('teacher')('Frannie')
+interviewQuestion()('Julie')
+
+//OR
+
+let interviewQuestionDesigner = interviewQuestion('designer')
+let interviewQuestionTeacher = interviewQuestion('teacher')
+let interviewQuestionIDK = interviewQuestion()
+interviewQuestionDesigner('Mason')
+interviewQuestionIDK('John')
+interviewQuestionTeacher('Samantha')
+
+
+// 	if(job === 'designer') {
+// 		return function (name, title) {
+// 			console.log(name + ', since you are a ' + title + ', can you please explain what UX design is?')
+// 		}
+
+// 	} else if(job === 'developer') {
+// 		return function (name, title) {
+// 			console.log('His name is ' + name + ', and he is a ' + title + '.')
+// 		}
+// 	}
+
+// }
+
+
+
+
 /**
  Everything is an Object: Prototype and Inheritance Chain
  **/
