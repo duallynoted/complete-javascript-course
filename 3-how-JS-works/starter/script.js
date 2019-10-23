@@ -20,37 +20,36 @@ An engine is a program that executes JavaScript code
  * Execution Contexts and the Execution Stack
  */
 
-/*
-JS runs in environments called Execution Contexts
-We can associate an execution context as an object
-Execution Context is like a box or container that stores variables and in which a piece of our code is executed
-The default execution context is the Global Execution Context
---this is code that is not inside any function
---associated with the global object, which in the browser, is ```the window object```
-Everything we declare in the global context automatically gets attached to the global object
---so, lastName === window.lastName //true
-properties are just variables attached to objects
-Each time you call a function, it gets its own, brand-new, execution context
 
-let name = 'John'; --this is a global context
-
-function first () { ---this is also a global context, as is second() and third()
-let a = 'Hello!'; --now in the first execution context, this variable is no longer global
-second(); --then this is called
-let x = a + name
-
-function second () {
-let b = 'hi!';
-third();
-let z = a + age
-
-first(); ---but now, this has its own execution context, adding to the stack
- 		 ---as will second(), and then third()(not shown, but doesn't call anything, so it gets returned)
-these add to the stack:
-global execution context _- execution context for first() _- execution context for second() _- execution context for third()--third() gets returned so we start taking them off the stack
--_ execution context for second() *gets returned and taken off the stack* -_ execution context for first() *gets returned and taken off the stack*
--_ global execution context *back to the global object from whence it started*
-*/
+// JS runs in environments called Execution Contexts
+// We can associate an execution context as an object
+// Execution Context is like a box or container that stores variables and in which a piece of our code is executed
+// The default execution context is the Global Execution Context
+// --this is code that is not inside any function
+// --associated with the global object, which in the browser, is ```the window object```
+// Everything we declare in the global context automatically gets attached to the global object
+// --so, lastName === window.lastName //true
+// properties are just variables attached to objects
+// Each time you call a function, it gets its own, brand-new, execution context
+//
+// let name = 'John'; --this is a global context
+//
+// function first () { ---this is also a global context, as is second() and third()
+// let a = 'Hello!'; --now in the first execution context, this variable is no longer global
+// second(); --then this is called
+// let x = a + name
+//
+// function second () {
+// let b = 'hi!';
+// third();
+// let z = a + age
+//
+// first(); ---but now, this has its own execution context, adding to the stack
+//  		 ---as will second(), and then third()(not shown, but doesn't call anything, so it gets returned)
+// these add to the stack:
+// global execution context _- execution context for first() _- execution context for second() _- execution context for third()--third() gets returned so we start taking them off the stack
+// -_ execution context for second() *gets returned and taken off the stack* -_ execution context for first() *gets returned and taken off the stack*
+// -_ global execution context *back to the global object from whence it started
 
 /******************************
  * Execution Contexts in Detail: Creation and Execution Phases and Hoisting
@@ -83,7 +82,7 @@ How the execution context is created:
 		*The only way to have a new scope is to write a new function
 		*Lexical scoping: a function that is lexically within another function and gets access to the
 		 scope of the outer function, also called the parent function
-		*Global scope will not have access to its chidren's scope unless the values are returned
+		*Global scope will not have access to its children's scope unless the values are returned
 
 	C) Determine value of the 'this' variable
 		*In a regular function call: the `this` keyword points at the global object
@@ -93,8 +92,8 @@ How the execution context is created:
 		 even though it appears that `this` refers to the object where it's defined, it is technically only assigned a value
 		 as soon as an object calls a method
 
-2. Execution phase
-   The code of the function that generated the current ECO is ran line by line
+2  Execution phase
+   The code of the function that generated the current ECO is run line by line
    if it's a global context, then the global code is executed
    all the variable are defined
 
@@ -205,15 +204,15 @@ let daniel = {
 	name: 'Daniel',
 	yearOfBirth: 1980,
 	calcAge: function () {
-		console.log( 2019- this.yearOfBirth)
+		console.log( 2019 - this.yearOfBirth)
 		console.log(this)
 
-		// function innerFunction () {
-		// 	console.log(this) //this will go back to logging the global window because even though
-		// 	                  //it is inside a method of an object, it is a regular function call,
-		// 	                  //and regular function calls always points to the window object
-		// }
-		// innerFunction()
+		function innerFunction () {
+			console.log(this) //this will go back to logging the global window because even though
+			                  //it is inside a method of an object, it is a regular function call,
+			                  //and regular function calls always points to the window object
+		}
+		innerFunction()
 	}
 }
 daniel.calcAge()
@@ -227,28 +226,6 @@ mike.calcAge()
 //This proves that the `this` keyword is only assigned a value once the method is called
 //As you'll see in the console, `this` logs the daniel object, and then the mike object
 
-
-/******************************
- * If/Else Statements
- */
-/******************************
- * If/Else Statements
- */
-/******************************
- * If/Else Statements
- */
-/******************************
- * If/Else Statements
- */
-/******************************
- * If/Else Statements
- */
-/******************************
- * If/Else Statements
- */
-/******************************
- * If/Else Statements
- */
 
 
 

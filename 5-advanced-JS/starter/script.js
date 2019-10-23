@@ -39,7 +39,7 @@
 // 	yearOfBirth: 1990,
 // 	job: 'teacher'
 // };
-
+//
 // var Person = function (name, yearOfBirth, job) {
 // 	this.name = name;
 // 	this.yearOfBirth = yearOfBirth;
@@ -82,7 +82,30 @@
 // console.log('You saved $' + lesPaul.saved(600) + ' on the ' + lesPaul.model + ' by using eBay!')
 // console.log('You saved $' + tele.saved(400) + ' by using eBay!')
 // console.log('You saved $' + martin.saved(1500) + ' by using eBay!')
-//THAT WAS FUN!!!
+//
+//
+// let Car = function(make, model, color, cost, productionYear) {
+// 	this.make = make;
+// 	this.model = model;
+// 	this.color = color;
+// 	this.cost = cost;
+// 	this.productionYear = productionYear;
+// }
+//
+// Car.prototype.ageOfCar = function () {
+// 	return 2019 - this.productionYear
+// }
+//
+// let isuzu = new Car('Isuzu', 'Pup', 'Navy Blue', 1800, 1986)
+// let firstMazda = new Car('Mazda', '323', 'Light Blue', 2500, 1993)
+// let secondMazda = new Car('Mazda', '626', 'Green', 3700, 1996)
+// let nissan = new Car('Nissan', 'Pathfinder', 'Black', 6000, 1996)
+// let firstHonda = new Car('Honda', 'Ridgeline', 'Black Pearl', 35000, 2010)
+// let secondHonda = new Car('Honda', 'Odyssey', 'Gun Metal Gray', 37000, 2013)
+// let firstToyota = new Car('Toyota', 'Venza', 'Red', 15000, 2010)
+// let secondToyata = new Car('Toyota', 'Corolla', 'Gray', 21000, 2017)
+// console.log(isuzu.ageOfCar(), firstMazda.ageOfCar(), secondMazda.ageOfCar(), nissan.ageOfCar(), firstHonda.ageOfCar(), secondHonda.ageOfCar(),firstToyota.ageOfCar(), secondToyata.ageOfCar())
+// THAT WAS FUN!!!
 
 /**
  Creating Objects: Object.Create
@@ -361,54 +384,65 @@
 //that we're storing those variables, so they're still in the same scope chain as they were before. it still sits there in memory and can be accessed
 //the current execution context has closed in on the outer variable object so it can use it, and that's why it's called a closure
 
-
-
-function retirement (retirementAge) {
-	let a = ' years left until retirement.'
-	return function (yearOfBirth) {
-		let age = 2019 - yearOfBirth
-		console.log(retirementAge - age + a)  //here, the inner function has access to 'retirementAge' and 'a' even though they're declared in
-									         //in the outer function
-	}
-}
-let retirementUS = retirement(66);
-retirementUS(1980)
-
-let retirementGermany = retirement(65);
-let retirementIceland = retirement(67)
-retirementGermany(1980)
-retirementIceland(1980)
-
-
-function interviewQuestion (job) {
-	let des = ', can you please explain what UX design is?'
-	let teach = 'What subject do you teach, '
-	let shrug = ', what do you do?'
-	return function (name) {
-		if(job === 'designer') {
-			console.log(name + des)
-		}else if(job === 'teacher'){
-			console.log(teach + name + '?')
-		} else {
-			console.log(name + shrug)
-		}
-	}
-}
-
-
-interviewQuestion('designer')('Dustin')
-interviewQuestion('teacher')('Frannie')
-interviewQuestion()('Julie')
-
-//OR
-
-let interviewQuestionDesigner = interviewQuestion('designer')
-let interviewQuestionTeacher = interviewQuestion('teacher')
-let interviewQuestionIDK = interviewQuestion()
-interviewQuestionDesigner('Mason')
-interviewQuestionIDK('John')
-interviewQuestionTeacher('Samantha')
-
+// function retirement (retirementAge) {
+// 	let a = ' years left until retirement.';
+// 	return function (yearOfBirth) {
+// 		let age = 2019 - yearOfBirth;
+// 		console.log(retirementAge - age + a);  //here, the inner function has access to 'retirementAge' and 'a' even though they're declared in
+// 		//in the outer function
+// 	};
+// }
+//
+// let retirementUS = retirement(66);
+// retirementUS(1980);
+//
+// let retirementGermany = retirement(65);
+// let retirementIceland = retirement(67);
+// retirementGermany(1980);
+// retirementIceland(1980);
+//
+// function interviewQuestion (job) {
+// 	let des = ', can you please explain what UX design is?';
+// 	let teach = 'What subject do you teach, ';
+// 	let shrug = ', what do you do?';
+// 	return function (name) {
+// 		if (job === 'designer') {
+// 			console.log(name + des);
+// 		} else if (job === 'teacher') {
+// 			console.log(teach + name + '?');
+// 		} else {
+// 			console.log(name + shrug);
+// 		}
+// 	};
+// }
+//
+// interviewQuestion('designer')('Dustin');
+// interviewQuestion('teacher')('Frannie');
+// interviewQuestion()('Julie');
+//
+// //OR
+//
+// let interviewQuestionDesigner = interviewQuestion('designer');
+// let interviewQuestionTeacher = interviewQuestion('teacher');
+// let interviewQuestionIDK = interviewQuestion();
+// interviewQuestionDesigner('Mason');
+// interviewQuestionIDK('John');
+// interviewQuestionTeacher('Samantha');
+//
+// function init () { //original function
+// 	let name = 'Daniel'; //variable created by init()
+//
+// 	function display (lastName) { //inner function inside init(), this is a CLOSURE
+// 		alert(name); //alerting 'name' which the closure has access to even though it's outside its own scope
+// 		             //it's in the scope of its parent
+// 	}
+// 	display(); //evaluate the closure
+// 			   //in this example, I'm not returning the closure, so I have to call it here.
+// 	           //otherwise, I'd return the closure, and then call it down with the original
+// 	           //function like this: init()()
+// }
+//
+// init();//evaluate the original function
 
 // 	if(job === 'designer') {
 // 		return function (name, title) {
@@ -423,12 +457,76 @@ interviewQuestionTeacher('Samantha')
 
 // }
 
-
-
-
 /**
- Everything is an Object: Prototype and Inheritance Chain
+ Bind, Call, and Apply
  **/
+
+var emmett = {
+	name: 'Emmett',
+	age: 26,
+	job: 'teacher',
+	presentation: function (style, timeOfDay) {
+		if(style === 'formal') {
+			console.log('Good ' + timeOfDay + ', Ladies and Gentleman! I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.')
+		} else if(style === 'friendly') {
+			console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '!' )
+		}
+	}
+}
+
+var emily = {
+	name: 'Emily',
+	age: 35,
+	job: 'designer',
+	calcYear: function () {
+		console.log(2019 - this.age)
+	}
+}
+
+var erin = {
+	age: 38,
+	name: 'Erin',
+	job: 'CPA'
+}
+
+emmett.presentation('formal', 'morning')
+
+emmett.presentation.call(emily, 'friendly', 'afternoon')//we used the call method. this is called 'method borrowing.' we borrowed the call method from emmett
+emmett.presentation.apply(emily, ['friendly', 'early morning'])//this is the apply method. Same as call basically, but accepts an array
+
+emily.calcYear()
+
+emily.calcYear.call(emmett)//using the call method again. this time emmett borrows it from emily
+emily.calcYear.call(erin)
+
+var emmettFriendly = emmett.presentation.bind(emmett, 'friendly')
+var emilyFormal = emmett.presentation.bind(emily, 'formal')
+var erinFormal = emmett.presentation.bind(erin, 'formal')
+emilyFormal('evening')
+emmettFriendly('evening')
+emmettFriendly('afternoon')
+erinFormal('morning')
+
+let years = [1990, 1965, 1937, 2005, 1998, 1981, 1980];
+
+function arrayCalc (arr, fn) {
+	let arrRes = [];
+	for (let i = 0; i < arr.length; i++) {
+		arrRes.push(fn(arr[i]));
+	}
+	return arrRes;
+}
+
+function calculateAge (el) {
+	return 2019 - el;
+}
+function isFullAge (limit, el) {
+	return el >= limit;
+}
+var ages = arrayCalc(years, calculateAge)
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20))
+console.log(ages, fullJapan)
+
 /**
  Everything is an Object: Prototype and Inheritance Chain
  **/
