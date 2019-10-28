@@ -105,12 +105,46 @@
 // let firstToyota = new Car('Toyota', 'Venza', 'Red', 15000, 2010)
 // let secondToyata = new Car('Toyota', 'Corolla', 'Gray', 21000, 2017)
 // console.log(isuzu.ageOfCar(), firstMazda.ageOfCar(), secondMazda.ageOfCar(), nissan.ageOfCar(), firstHonda.ageOfCar(), secondHonda.ageOfCar(),firstToyota.ageOfCar(), secondToyata.ageOfCar())
-// THAT WAS FUN!!!
-
+// // THAT WAS FUN!!!
+//
+// let Customer = function (firstName, lastName, isActive, yearJoined) {
+// 	this.firstName = firstName;
+// 	this.lastName = lastName;
+// 	this.isActive = isActive;
+// 	this.yearJoined = yearJoined;
+// }
+//
+// Customer.prototype.loyalSince = function() {
+// 	return 2019 - this.yearJoined
+// }
+//
+// let milo = new Customer('Milo', 'Ridley', true, 2017)
+// let amit = new Customer('Amit', 'Praveen', false, 2003)
+// console.log(milo.firstName + ' has been a loyal customer for ' + milo.loyalSince() + ' years!')
+// console.log(amit.firstName + ' has been a loyal customer for ' + amit.loyalSince() + ' years!')
+//
+// let RoofJob = function (name, brand, color, jobDate, sqFootage) {
+// 	this.name = name;
+// 	this.brand = brand;
+// 	this.color = color;
+// 	this.jobDate = jobDate;
+// 	this.sqFootage = sqFootage;
+// }
+//
+// let ridley = new RoofJob('Ridley', 'Owens Corning', 'Estate Gray', '12/1/19', 2500)
+// let babitha = new RoofJob('Babitha', 'James Hardie', 'Boothbay Blue', '12/31/19', 4500)
+// RoofJob.prototype.cost = function () {
+// 	return 6.85 * this.sqFootage
+// }
+//
+// console.log('Looks like for the ' + ridley.name + ' project, they are using ' + ridley.brand + ' in the ' + ridley.color + ' color. The start date will be ' + ridley.jobDate + ' and will cost approximately $' + ridley.cost() +' dollars.' )
+// console.log('Looks like for the ' + babitha.name + ' project, they are using ' + babitha.brand + ' in the ' + babitha.color + ' color. The start date will be ' + babitha.jobDate + ' and will cost approximately $' + babitha.cost() +' dollars.' )
 /**
  Creating Objects: Object.Create
  **/
 
+// //This is Object.create
+//
 // let personProto = {
 // 	calcAge: function () {
 // 		console.log(2019 - this.yearOfBirth)
@@ -122,11 +156,27 @@
 // john.yearOfBirth = 1990;
 // john.job = 'teacher';
 //
+// let jack = Object.create(personProto)
+// jack.name = 'Jack';
+// jack.yearOfBirth = 1993
+// jack.job = 'Developer'
+//
 // let jane = Object.create(personProto, {
 // 	name: {value: 'Jane'},
 // 	yearOfBirth: {value: 1969},
 // 	job: {value: 'Designer'}
 // })
+//
+// let jim = Object.create(personProto, {
+// 	name: {value: 'Jim'},
+// 	yearOfBirth: {value: 1952},
+// 	job: {value: 'Insurance Salesman'}
+// })
+//
+// console.log(john.calcAge(), jane.calcAge(), jack.calcAge())
+// console.log(jim.calcAge(), jim, jack)
+//
+// //This is Object.assign
 //
 // let marriedPrototypeProperty = {
 // 	married: true
@@ -140,46 +190,62 @@
 // 	fat: { value: true }
 // });
 // console.log(daniel);
+//
+// let colorPrototype = {
+// 	color: 'Space Gray'
+// }
+// let model = {
+// 	// canBeAnythingSoNameItWhatYouLike: 'iPhone X'
+// 	model: 'iPhone X'
+// }
+// let phone = Object.assign(colorPrototype, model, {
+// 	type: {phoneType: 'smartphone'},
+// 	brand: {brandName: 'Apple'}
+// })
+//
+// console.log(phone)
+
+
 
 /**
  Primitives vs. Objects
  **/
-//Object variables don't actually hold the data, they point to where the data is stored
+// Object variables don't actually hold the data, they point to where the data is stored
 
-// let a = 42;
-// let b = a;
-// b = 95;
-// console.log(a, b);
-//
-// let obj1 = {
-// 	name: 'Daniel',
-// 	age: 39
-// };
-// let obj2 = obj1;
-// let obj3 = obj1;
-// obj1.age = 40;
-// // obj3.name = 'Tony'
-// console.log(obj1.age, obj1.name);
-// console.log(obj2.age, obj2.name);
-// console.log(obj3.age, obj3.name);
-//
-// //functions
-//
-// let age = 39;
-// let obj = {
-// 	name: 'Daniel',
-// 	city: 'Shoreview',
-// };
-//
-// function change (a, b) {
-// 	a = 23;
-// 	b.city = 'Minneapolis';
-//
-// }
-//
-// change(age, obj);
-// console.log(age, obj);
-//When you pass an object in to a function, you're actually passing the REFERENCE to that object, not the object itself
+let a = 42;
+let b = a;
+b = 95;
+console.log(a, b);
+
+let obj1 = {
+	name: 'Daniel',
+	age: 39
+};
+let obj2 = obj1;
+let obj3 = obj1;
+obj1.age = 40;
+// obj3.name = 'Tony'
+console.log(obj1.age, obj1.name);
+console.log(obj2.age, obj2.name);
+console.log(obj3.age, obj3.name);
+
+//functions
+
+let age = 39;
+let obj = {
+	name: 'Daniel',
+	city: 'Shoreview',
+};
+
+function change (a, b) {
+	a = 23;
+	b.city = 'Minneapolis';
+
+}
+
+change(age, obj);
+console.log(age, obj);
+// When you pass an object in to a function, you're actually passing the REFERENCE to that object, not the object itself
 
 /**
  First Class Functions: Passing Functions as Arguments
@@ -460,72 +526,72 @@
 /**
  Bind, Call, and Apply
  **/
-
-var emmett = {
-	name: 'Emmett',
-	age: 26,
-	job: 'teacher',
-	presentation: function (style, timeOfDay) {
-		if(style === 'formal') {
-			console.log('Good ' + timeOfDay + ', Ladies and Gentleman! I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.')
-		} else if(style === 'friendly') {
-			console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '!' )
-		}
-	}
-}
-
-var emily = {
-	name: 'Emily',
-	age: 35,
-	job: 'designer',
-	calcYear: function () {
-		console.log(2019 - this.age)
-	}
-}
-
-var erin = {
-	age: 38,
-	name: 'Erin',
-	job: 'CPA'
-}
-
-emmett.presentation('formal', 'morning')
-
-emmett.presentation.call(emily, 'friendly', 'afternoon')//we used the call method. this is called 'method borrowing.' we borrowed the call method from emmett
-emmett.presentation.apply(emily, ['friendly', 'early morning'])//this is the apply method. Same as call basically, but accepts an array
-
-emily.calcYear()
-
-emily.calcYear.call(emmett)//using the call method again. this time emmett borrows it from emily
-emily.calcYear.call(erin)
-
-var emmettFriendly = emmett.presentation.bind(emmett, 'friendly')
-var emilyFormal = emmett.presentation.bind(emily, 'formal')
-var erinFormal = emmett.presentation.bind(erin, 'formal')
-emilyFormal('evening')
-emmettFriendly('evening')
-emmettFriendly('afternoon')
-erinFormal('morning')
-
-let years = [1990, 1965, 1937, 2005, 1998, 1981, 1980];
-
-function arrayCalc (arr, fn) {
-	let arrRes = [];
-	for (let i = 0; i < arr.length; i++) {
-		arrRes.push(fn(arr[i]));
-	}
-	return arrRes;
-}
-
-function calculateAge (el) {
-	return 2019 - el;
-}
-function isFullAge (limit, el) {
-	return el >= limit;
-}
-var ages = arrayCalc(years, calculateAge)
-var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20))
-console.log(ages, fullJapan)
+//
+// var emmett = {
+// 	name: 'Emmett',
+// 	age: 26,
+// 	job: 'teacher',
+// 	presentation: function (style, timeOfDay) {
+// 		if(style === 'formal') {
+// 			console.log('Good ' + timeOfDay + ', Ladies and Gentleman! I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.')
+// 		} else if(style === 'friendly') {
+// 			console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '!' )
+// 		}
+// 	}
+// }
+//
+// var emily = {
+// 	name: 'Emily',
+// 	age: 35,
+// 	job: 'designer',
+// 	calcYear: function () {
+// 		console.log(2019 - this.age)
+// 	}
+// }
+//
+// var erin = {
+// 	age: 38,
+// 	name: 'Erin',
+// 	job: 'CPA'
+// }
+//
+// emmett.presentation('formal', 'morning')
+//
+// emmett.presentation.call(emily, 'friendly', 'afternoon')//we used the call method. this is called 'method borrowing.' we borrowed the call method from emmett
+// emmett.presentation.apply(emily, ['friendly', 'early morning'])//this is the apply method. Same as call basically, but accepts an array
+//
+// emily.calcYear()
+//
+// emily.calcYear.call(emmett)//using the call method again. this time emmett borrows it from emily
+// emily.calcYear.call(erin)
+//
+// var emmettFriendly = emmett.presentation.bind(emmett, 'friendly')
+// var emilyFormal = emmett.presentation.bind(emily, 'formal')
+// var erinFormal = emmett.presentation.bind(erin, 'formal')
+// emilyFormal('evening')
+// emmettFriendly('evening')
+// emmettFriendly('afternoon')
+// erinFormal('morning')
+//
+// let years = [1990, 1965, 1937, 2005, 1998, 1981, 1980];
+//
+// function arrayCalc (arr, fn) {
+// 	let arrRes = [];
+// 	for (let i = 0; i < arr.length; i++) {
+// 		arrRes.push(fn(arr[i]));
+// 	}
+// 	return arrRes;
+// }
+//
+// function calculateAge (el) {
+// 	return 2019 - el;
+// }
+// function isFullAge (limit, el) {
+// 	return el >= limit;
+// }
+// var ages = arrayCalc(years, calculateAge)
+// var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20))
+// console.log(ages, fullJapan)
 
 /**
  Everything is an Object: Prototype and Inheritance Chain
