@@ -237,7 +237,7 @@ let obj = {
 	city: 'Shoreview',
 };
 
-function change (a, b) {
+function change(a, b) {
 	a = 23;
 	b.city = 'Minneapolis';
 
@@ -245,6 +245,7 @@ function change (a, b) {
 
 change(age, obj);
 console.log(age, obj);
+console.log('Makin some change so I can commit something')
 // When you pass an object in to a function, you're actually passing the REFERENCE to that object, not the object itself
 
 /**
