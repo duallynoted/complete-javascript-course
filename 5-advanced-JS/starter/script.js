@@ -39,14 +39,32 @@
 // 	yearOfBirth: 1990,
 // 	job: 'teacher'
 // };
-//
+
 // var Person = function (name, yearOfBirth, job) {
 // 	this.name = name;
 // 	this.yearOfBirth = yearOfBirth;
 // 	this.job = job;
 // }
-//
-// Person.prototype.calcAge =function () {
+
+// let Recipe = function (name, ingredients, isDessert, temperature) {
+// 	this.name = name;
+// 	this.ingredients = ingredients;
+// 	this.isDessert = false;
+// 	this.temperature = temperature
+// }
+
+// Recipe.prototype.isDelicious = true;
+// Recipe.prototype.trueTemperature = function () {
+// 	return 300 - this.temperature;
+// }
+
+// let healthySnack = new Recipe('Peanut Butter Honey Nuts', ['peanut butter', 'honey', 'oats', 'cranberries'], true, 72);
+// console.log(healthySnack.trueTemperature())
+// console.log(healthySnack)
+// let mixedDrink = new Recipe('Tequila Sunrise', ['orange juice', 'vodka', 'ice'], false, 'cold')
+// console.log(mixedDrink)
+
+// Person.prototype.calcAge = function () {
 // 	console.log(2019 - this.yearOfBirth)
 // }
 // Person.prototype.lastName = 'Smith'
@@ -61,41 +79,41 @@
 // mark.calcAge()
 // john.calcAge()
 // //
-// let Guitar  = function (brand, model, electric, acoustic, price) {
+// let Guitar = function (brand, model, electric, acoustic, price) {
 // 	this.brand = brand;
 // 	this.model = model;
 // 	this.electric = electric;
 // 	this.acoustic = acoustic;
 // 	this.price = price;
 // }
-//
-// Guitar.prototype.saved = function (sale){
+
+// Guitar.prototype.saved = function (sale) {
 // 	return this.price - sale
 // }
-//
+
 // let lesPaul = new Guitar('Gibson', 'Les Paul Studio', true, false, 2000);
 // let tele = new Guitar('Fender', 'Mexican Telecaster', true, false, 1000);
 // let martin = new Guitar('Martin', 'GCPC-A4', false, true, 1699)
-//
+
 // Guitar.prototype.whoOwnsIt = 'This is my guitar'
 // console.log(lesPaul, tele, martin)
 // console.log('You saved $' + lesPaul.saved(600) + ' on the ' + lesPaul.model + ' by using eBay!')
 // console.log('You saved $' + tele.saved(400) + ' by using eBay!')
 // console.log('You saved $' + martin.saved(1500) + ' by using eBay!')
-//
-//
-// let Car = function(make, model, color, cost, productionYear) {
+
+
+// let Car = function (make, model, color, cost, productionYear) {
 // 	this.make = make;
 // 	this.model = model;
 // 	this.color = color;
 // 	this.cost = cost;
 // 	this.productionYear = productionYear;
 // }
-//
+
 // Car.prototype.ageOfCar = function () {
 // 	return 2019 - this.productionYear
 // }
-//
+
 // let isuzu = new Car('Isuzu', 'Pup', 'Navy Blue', 1800, 1986)
 // let firstMazda = new Car('Mazda', '323', 'Light Blue', 2500, 1993)
 // let secondMazda = new Car('Mazda', '626', 'Green', 3700, 1996)
@@ -104,25 +122,25 @@
 // let secondHonda = new Car('Honda', 'Odyssey', 'Gun Metal Gray', 37000, 2013)
 // let firstToyota = new Car('Toyota', 'Venza', 'Red', 15000, 2010)
 // let secondToyata = new Car('Toyota', 'Corolla', 'Gray', 21000, 2017)
-// console.log(isuzu.ageOfCar(), firstMazda.ageOfCar(), secondMazda.ageOfCar(), nissan.ageOfCar(), firstHonda.ageOfCar(), secondHonda.ageOfCar(),firstToyota.ageOfCar(), secondToyata.ageOfCar())
+// console.log(isuzu.ageOfCar(), firstMazda.ageOfCar(), secondMazda.ageOfCar(), nissan.ageOfCar(), firstHonda.ageOfCar(), secondHonda.ageOfCar(), firstToyota.ageOfCar(), secondToyata.ageOfCar())
 // // THAT WAS FUN!!!
-//
+
 // let Customer = function (firstName, lastName, isActive, yearJoined) {
 // 	this.firstName = firstName;
 // 	this.lastName = lastName;
 // 	this.isActive = isActive;
 // 	this.yearJoined = yearJoined;
 // }
-//
-// Customer.prototype.loyalSince = function() {
+
+// Customer.prototype.loyalSince = function () {
 // 	return 2019 - this.yearJoined
 // }
-//
+
 // let milo = new Customer('Milo', 'Ridley', true, 2017)
 // let amit = new Customer('Amit', 'Praveen', false, 2003)
 // console.log(milo.firstName + ' has been a loyal customer for ' + milo.loyalSince() + ' years!')
 // console.log(amit.firstName + ' has been a loyal customer for ' + amit.loyalSince() + ' years!')
-//
+
 // let RoofJob = function (name, brand, color, jobDate, sqFootage) {
 // 	this.name = name;
 // 	this.brand = brand;
@@ -130,80 +148,88 @@
 // 	this.jobDate = jobDate;
 // 	this.sqFootage = sqFootage;
 // }
-//
+
 // let ridley = new RoofJob('Ridley', 'Owens Corning', 'Estate Gray', '12/1/19', 2500)
 // let babitha = new RoofJob('Babitha', 'James Hardie', 'Boothbay Blue', '12/31/19', 4500)
 // RoofJob.prototype.cost = function () {
 // 	return 6.85 * this.sqFootage
 // }
-//
-// console.log('Looks like for the ' + ridley.name + ' project, they are using ' + ridley.brand + ' in the ' + ridley.color + ' color. The start date will be ' + ridley.jobDate + ' and will cost approximately $' + ridley.cost() +' dollars.' )
-// console.log('Looks like for the ' + babitha.name + ' project, they are using ' + babitha.brand + ' in the ' + babitha.color + ' color. The start date will be ' + babitha.jobDate + ' and will cost approximately $' + babitha.cost() +' dollars.' )
+
+// console.log('Looks like for the ' + ridley.name + ' project, they are using ' + ridley.brand + ' in the ' + ridley.color + ' color. The start date will be ' + ridley.jobDate + ' and will cost approximately $' + ridley.cost() + ' dollars.')
+// console.log('Looks like for the ' + babitha.name + ' project, they are using ' + babitha.brand + ' in the ' + babitha.color + ' color. The start date will be ' + babitha.jobDate + ' and will cost approximately $' + babitha.cost() + ' dollars.')
 /**
  Creating Objects: Object.Create
  **/
 
 // //This is Object.create
 //
-// let personProto = {
-// 	calcAge: function () {
-// 		console.log(2019 - this.yearOfBirth)
-// 	}
-// }
-//
-// let john = Object.create(personProto)
-// john.name = 'John';
-// john.yearOfBirth = 1990;
-// john.job = 'teacher';
-//
-// let jack = Object.create(personProto)
-// jack.name = 'Jack';
-// jack.yearOfBirth = 1993
-// jack.job = 'Developer'
-//
-// let jane = Object.create(personProto, {
-// 	name: {value: 'Jane'},
-// 	yearOfBirth: {value: 1969},
-// 	job: {value: 'Designer'}
-// })
-//
-// let jim = Object.create(personProto, {
-// 	name: {value: 'Jim'},
-// 	yearOfBirth: {value: 1952},
-// 	job: {value: 'Insurance Salesman'}
-// })
-//
-// console.log(john.calcAge(), jane.calcAge(), jack.calcAge())
-// console.log(jim.calcAge(), jim, jack)
-//
-// //This is Object.assign
-//
-// let marriedPrototypeProperty = {
-// 	married: true
-// };
-// let lastname = {
-// 	lastName: 'Ridley'
-// };
-//
-// let daniel = Object.assign(marriedPrototypeProperty, lastname, {
-// 	name: { value: 'Daniel' },
-// 	fat: { value: true }
-// });
-// console.log(daniel);
-//
-// let colorPrototype = {
-// 	color: 'Space Gray'
-// }
-// let model = {
-// 	// canBeAnythingSoNameItWhatYouLike: 'iPhone X'
-// 	model: 'iPhone X'
-// }
-// let phone = Object.assign(colorPrototype, model, {
-// 	type: {phoneType: 'smartphone'},
-// 	brand: {brandName: 'Apple'}
-// })
-//
-// console.log(phone)
+let personProto = {
+	calcAge: function () {
+		console.log(2019 - this.yearOfBirth)
+	}
+}
+
+let john = Object.create(personProto)
+john.name = 'John';
+john.yearOfBirth = 1990;
+john.job = 'teacher';
+
+let jack = Object.create(personProto)
+jack.name = 'Jack';
+jack.yearOfBirth = 1993
+jack.job = 'Developer'
+
+let jane = Object.create(personProto, {
+	name: { value: 'Jane' },
+	yearOfBirth: { value: 1969 },
+	job: { value: 'Designer' }
+})
+
+let jim = Object.create(personProto, {
+	name: { value: 'Jim' },
+	yearOfBirth: { value: 1952 },
+	job: { value: 'Insurance Salesman' }
+})
+
+console.log(john.calcAge(), jane.calcAge(), jack.calcAge())
+console.log(jim.calcAge(), jim, jack)
+
+let guitarProto = { isMine: true }
+
+let lesPaul = Object.create(guitarProto, {
+	title: { value: 'Les Paul' },
+	cost: { value: '$600' }
+})
+console.log(lesPaul)
+
+//This is Object.assign
+
+let marriedPrototypeProperty = {
+	married: true
+};
+let lastname = {
+	lastName: 'Ridley'
+};
+
+let daniel = Object.assign(marriedPrototypeProperty, lastname, {
+	name: { value: 'Daniel' },
+	fat: { value: true }
+});
+console.log(daniel);
+
+let colorPrototype = {
+	color: 'Space Gray'
+}
+let model = {
+	// canBeAnythingSoNameItWhatYouLike: 'iPhone X'
+	model: 'iPhone X'
+}
+let phone = Object.assign(colorPrototype, model, {
+	type: { phoneType: 'smartphone' },
+	brand: { brandName: 'Apple' }
+})
+
+console.log(phone)
 
 
 
@@ -212,41 +238,41 @@
  **/
 // Object variables don't actually hold the data, they point to where the data is stored
 
-let a = 42;
-let b = a;
-b = 95;
-console.log(a, b);
+// let a = 42;
+// let b = a;
+// b = 95;
+// console.log(a, b);
 
-let obj1 = {
-	name: 'Daniel',
-	age: 39
-};
-let obj2 = obj1;
-let obj3 = obj1;
-obj1.age = 40;
-// obj3.name = 'Tony'
-console.log(obj1.age, obj1.name);
-console.log(obj2.age, obj2.name);
-console.log(obj3.age, obj3.name);
+// let obj1 = {
+// 	name: 'Daniel',
+// 	age: 39
+// };
+// let obj2 = obj1;
+// let obj3 = obj1;
+// obj1.age = 40;
+// // obj3.name = 'Tony'
+// console.log(obj1.age, obj1.name);
+// console.log(obj2.age, obj2.name);
+// console.log(obj3.age, obj3.name);
 
-//functions
+// //functions
 
-let age = 39;
-let obj = {
-	name: 'Daniel',
-	city: 'Shoreview',
-};
+// let age = 39;
+// let obj = {
+// 	name: 'Daniel',
+// 	city: 'Shoreview',
+// };
 
-function change(a, b) {
-	a = 23;
-	b.city = 'Minneapolis';
+// function change(a, b) {
+// 	a = 23;
+// 	b.city = 'Minneapolis';
 
-}
+// }
 
-change(age, obj);
-console.log(age, obj);
-console.log('Makin some change so I can commit something')
-// When you pass an object in to a function, you're actually passing the REFERENCE to that object, not the object itself
+// change(age, obj);
+// console.log(age, obj);
+// console.log('Makin some change so I can commit something')
+// // When you pass an object in to a function, you're actually passing the REFERENCE to that object, not the object itself
 
 /**
  First Class Functions: Passing Functions as Arguments
