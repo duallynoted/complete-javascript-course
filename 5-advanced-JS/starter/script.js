@@ -163,73 +163,73 @@
 
 // //This is Object.create
 //
-let personProto = {
-	calcAge: function () {
-		console.log(2019 - this.yearOfBirth)
-	}
-}
+// let personProto = {
+// 	calcAge: function () {
+// 		console.log(2019 - this.yearOfBirth)
+// 	}
+// }
 
-let john = Object.create(personProto)
-john.name = 'John';
-john.yearOfBirth = 1990;
-john.job = 'teacher';
+// let john = Object.create(personProto)
+// john.name = 'John';
+// john.yearOfBirth = 1990;
+// john.job = 'teacher';
 
-let jack = Object.create(personProto)
-jack.name = 'Jack';
-jack.yearOfBirth = 1993
-jack.job = 'Developer'
+// let jack = Object.create(personProto)
+// jack.name = 'Jack';
+// jack.yearOfBirth = 1993
+// jack.job = 'Developer'
 
-let jane = Object.create(personProto, {
-	name: { value: 'Jane' },
-	yearOfBirth: { value: 1969 },
-	job: { value: 'Designer' }
-})
+// let jane = Object.create(personProto, {
+// 	name: { value: 'Jane' },
+// 	yearOfBirth: { value: 1969 },
+// 	job: { value: 'Designer' }
+// })
 
-let jim = Object.create(personProto, {
-	name: { value: 'Jim' },
-	yearOfBirth: { value: 1952 },
-	job: { value: 'Insurance Salesman' }
-})
+// let jim = Object.create(personProto, {
+// 	name: { value: 'Jim' },
+// 	yearOfBirth: { value: 1952 },
+// 	job: { value: 'Insurance Salesman' }
+// })
 
-console.log(john.calcAge(), jane.calcAge(), jack.calcAge())
-console.log(jim.calcAge(), jim, jack)
+// console.log(john.calcAge(), jane.calcAge(), jack.calcAge())
+// console.log(jim.calcAge(), jim, jack)
 
-let guitarProto = { isMine: true }
+// let guitarProto = { isMine: true }
 
-let lesPaul = Object.create(guitarProto, {
-	title: { value: 'Les Paul' },
-	cost: { value: '$600' }
-})
-console.log(lesPaul)
+// let lesPaul = Object.create(guitarProto, {
+// 	title: { value: 'Les Paul' },
+// 	cost: { value: '$600' }
+// })
+// console.log(lesPaul)
 
 //This is Object.assign
 
-let marriedPrototypeProperty = {
-	married: true
-};
-let lastname = {
-	lastName: 'Ridley'
-};
+// let marriedPrototypeProperty = {
+// 	married: true
+// };
+// let lastname = {
+// 	lastName: 'Ridley'
+// };
 
-let daniel = Object.assign(marriedPrototypeProperty, lastname, {
-	name: { value: 'Daniel' },
-	fat: { value: true }
-});
-console.log(daniel);
+// let daniel = Object.assign(marriedPrototypeProperty, lastname, {
+// 	name: { value: 'Daniel' },
+// 	fat: { value: true }
+// });
+// console.log(daniel);
 
-let colorPrototype = {
-	color: 'Space Gray'
-}
-let model = {
-	// canBeAnythingSoNameItWhatYouLike: 'iPhone X'
-	model: 'iPhone X'
-}
-let phone = Object.assign(colorPrototype, model, {
-	type: { phoneType: 'smartphone' },
-	brand: { brandName: 'Apple' }
-})
+// let colorPrototype = {
+// 	color: 'Space Gray'
+// }
+// let model = {
+// 	// canBeAnythingSoNameItWhatYouLike: 'iPhone X'
+// 	model: 'iPhone X'
+// }
+// let phone = Object.assign(colorPrototype, model, {
+// 	type: { phoneType: 'smartphone' },
+// 	brand: { brandName: 'Apple' }
+// })
 
-console.log(phone)
+// console.log(phone)
 
 
 
@@ -243,6 +243,12 @@ console.log(phone)
 // b = 95;
 // console.log(a, b);
 
+// let aye = 49
+// let bee = 'aye'
+// bee = 77
+// console.log('aye', aye)
+// console.log('bee', bee)
+
 // let obj1 = {
 // 	name: 'Daniel',
 // 	age: 39
@@ -255,7 +261,7 @@ console.log(phone)
 // console.log(obj2.age, obj2.name);
 // console.log(obj3.age, obj3.name);
 
-// //functions
+// // //functions
 
 // let age = 39;
 // let obj = {
@@ -268,86 +274,97 @@ console.log(phone)
 // 	b.city = 'Minneapolis';
 
 // }
-
 // change(age, obj);
 // console.log(age, obj);
-// console.log('Makin some change so I can commit something')
+
+// let temp = 375
+// let cake = {
+// 	name: 'German Chocolate Cake',
+// 	bakery: 'Bon Bonerie'
+// }
+
+// function updateRecipe(a, b) {
+// 	a = 400;
+// 	b.bakery = 'Ruthie\'s'
+// }
+// updateRecipe(temp, cake)
+// console.log(cake)
 // // When you pass an object in to a function, you're actually passing the REFERENCE to that object, not the object itself
 
 /**
  First Class Functions: Passing Functions as Arguments
  **/
 
-//A function is an instance of the Object type
-//It behaves like any other object
-//We can store functions in variables
-//We can pass a function as an argument to another function
-//We can return a function from a function
-//This is all FIRST CLASS FUNCTIONS
+// A function is an instance of the Object type
+// It behaves like any other object
+// We can store functions in variables
+// We can pass a function as an argument to another function
+// 	We can return a function from a function
+// 	This is all FIRST CLASS FUNCTIONS
 
 // let years = [1990, 1965, 1937, 2005, 1998, 1981, 1980];
-//
-// function arrayCalc (arr, fn) {
-// 	let arrRes = [];
+
+// function arrayCalc(arr, fn) {
+// 	let arrRes = []
 // 	for (let i = 0; i < arr.length; i++) {
-// 		arrRes.push(fn(arr[i]));
-// 	}
+// 		arrRes.push(fn(arr[i]))
+// 	};
 // 	return arrRes;
 // }
-//
-// function calculateAge (el) {
-// 	return 2019 - el;
+
+// function calcAge(x) {
+// 	return 2019 - x
 // }
-//
-// let ages = arrayCalc(years, calculateAge);
+
+// let ages = arrayCalc(years, calcAge);// don't put calcAge(), becuase you're not evaluating it here
 // console.log(ages);
-//
+
 // let ridleyAges = [2.5, 5, 39, 38];
-//
-// function arrayCalc (arr, fn) {
+
+// function arrayCalc(arr, fn) {
 // 	let arrRes = [];
 // 	for (let i = 0; i < arr.length; i++) {
 // 		arrRes.push(fn(arr[i]));
 // 	}
 // 	return arrRes;
 // }
-//
-// function addAge (el) {
+
+// function addAge(el) {
 // 	return 2019 + el;
 // }
-//
+
 // let doubleOurAge = arrayCalc(ridleyAges, addAge);
 // console.log(doubleOurAge);
-//
-// function isFullAge (el) {
+
+// function isFullAge(el) {
 // 	return el >= 18;
 // }
-//
+
 // let fulAge = arrayCalc(ages, isFullAge);
 // console.log(fulAge);
-//
-// function maxHeartRate (el) {
+
+// function maxHeartRate(el) {
 // 	if (el >= 18 && el <= 81) {
 // 		return Math.round(206.9 - (0.67 * el));
 // 	} else {
 // 		return -1;
 // 	}
 // }
-//
+
 // let heartRate = arrayCalc(ages, maxHeartRate);
 // console.log(heartRate);
 
 // let salaries = [23000, 42500, 97000];
-//
-// function arrayCalc (array, funktion) {
+
+// function arrayCalc(array, funktion) {
 // 	let arrayResults = [];
 // 	for (let i = 0; i < array.length; i++) {
 // 		arrayResults.push(funktion(array[i]));
 // 	}
 // 	return arrayResults;
 // }
-//
-// function raisePercentage (el) {
+
+// function raisePercentage(el) {
 // 	if (el > 85000) {
 // 		return el * .10 + el;
 // 	} else if (el > 40000 && el < 84000) {
@@ -358,11 +375,11 @@ console.log(phone)
 // 		return el;
 // 	}
 // }
-//
+
 // let currentRaises = arrayCalc(salaries, raisePercentage);
 // console.log(currentRaises);
-//
-// function fizzBuzz (num) {
+
+// function fizzBuzz(num) {
 // 	if (num % 15 === 0) {
 // 		return 'fizzBuzz';
 // 	} else if (num % 5 === 0) {
@@ -373,62 +390,135 @@ console.log(phone)
 // 		return num.toString();
 // 	}
 // }
-//
+
 // for (let i = 0; i <= 100; i++) {
 // 	// console.log(fizzBuzz(i));
 // }
-//
+
 // let bills = [1000, 900, 45, 1700, 210, 600, 367, 500]
-// function practiceArray (arr, fn) {
+// function practiceArray(arr, fn) {
 // 	let arrayResults = [];
 // 	for (let i = 0; i < arr.length; i++) {
 // 		arrayResults.push(fn(arr[i]));
 // 	}
 // 	return arrayResults
 // }
-//
-// function leftAfterBills (el) {
+
+// function leftAfterBills(el) {
 // 	return 9000 - el
 // }
-//
+
 // let monthlyBudget = practiceArray(bills, leftAfterBills)
 // console.log(monthlyBudget)
+
+// function forEachFunction(arr, fn) {
+// 	arrResults = []
+// 	for (i = 0; i < arr.length; i++) {
+// 		arrResults.push(fn(arr[i]));
+// 	}
+// 	return arrResults
+// }
+
+// let mealCalories = [240, 450, 111, 1543, 368, 800]
+
+// function isHealthy(amount) {
+// 	if (amount <= 500) {
+// 		return console.log(true);
+// 	} else {
+// 		return console.log(false);
+// 	}
+// }
+
+// forEachFunction(mealCalories, isHealthy)
 
 /**
  First Class Functions: Functions Returning Functions
  **/
 
 // function interviewQuestion(job) {
-// 	if(job === 'designer') {
-// 		return function (name, title) {
+// 	if (job === 'designer') {
+// 		return (name, title) => {
 // 			console.log(name + ', since you are a ' + title + ', can you please explain what UX design is?')
 // 		}
-// 	} else if(job === 'teacher') {
-// 		return function (name) {
+// 	} else if (job === 'teacher') {
+// 		return (name) => {
 // 			console.log('What subject do you teach, ' + name + '?')
 // 		}
-// 	} else if(job === 'developer') {
-// 		return function (name, title) {
+// 	} else if (job === 'developer') {
+// 		return (name, title) => {
 // 			console.log('His name is ' + name + ', and he is a ' + title + '.')
 // 		}
 // 	}
 // 	else {
-// 		return function (name) {
+// 		return (name) => {
 // 			console.log('Hello, ' + name + ', what do you do?')
 // 		}
 // 	}
 // }
 // interviewQuestion('')('Daniel')
 // interviewQuestion('developer')('Ujwal', 'Director of Web Services')
-//
-// // let teacherQuestion = interviewQuestion('teacher')
-// // teacherQuestion('John')
-// //
+
+// let teacherQuestion = interviewQuestion('teacher')
+// teacherQuestion('John')
+
 // let designerQuestion = interviewQuestion('designer')
 // designerQuestion('Mason', 'Senior UX Designer')
-//
+
 // let shrugQuestion = interviewQuestion()
-// shrugQuestion('Julie')
+// shrugQuestion('Nick')
+
+
+// const bandQuestions = (band) => {
+// 	if (band === 'Pink Floyd') {
+// 		return (singer, guitarist) => {
+// 			console.log('So, if Pink Floyd is your favorite band, their first vocalist was ' + singer + ' and their second guitarist was ' + guitarist + '.')
+// 		}
+// 	} else if (band === 'Radiohead') {
+// 		return (album, rhythmGuitarist, favoriteAmericanBand) => {
+// 			console.log('What was the title of their 4th album?', album, ' | What is the name of their rhythm guitarist?', rhythmGuitarist, ' | Who is their favorite American Band?', favoriteAmericanBand)
+// 		}
+// 	} else if (band === 'Guster') {
+// 		return (drummerNickname, dumpster, favoriteAlbum) => {
+// 			console.log('Their drummer plays in a unique style. What is his nickname?', drummerNickname, ' | Have they ever played in front of a dumpster?', dumpster, ' | What is your favorite album?', favoriteAlbum)
+// 		}
+// 	} else {
+// 		return (bandName, name) => {
+// 			console.log(bandName, ', eh,', name, '? That\'s fine I guess');
+// 		}
+// 	}
+// }
+
+// let pfQuestion = bandQuestions('Pink Floyd')
+// pfQuestion('Syd Barret', 'David Gilmour')
+// let radioheadQuestion = bandQuestions('Radiohead');
+// radioheadQuestion('Kid A', 'Ed Colin', 'Grizzly Bear')
+// let gusQuestion = bandQuestions('Guster');
+// gusQuestion('The Conguero', true, 'Keep it Together')
+// let noName = bandQuestions();
+// noName('Ben Folds', 'Anne');
+
+
+
+
+// const bookQuestions = (book) => {
+// 	switch (book) {
+// 		case 'Harry Potter':
+// 			return (character, name) => {
+// 				console.log(character, 'is the name of your favorite character in the Harry Potter book:', name)
+// 			}
+// 		case 'Life of Pi':
+// 			return (tiger) => {
+// 				console.log('What was the name of the tiger in Life of Pi? | ', tiger)
+// 			}
+// 		default:
+// 			return book;
+// 	}
+// }
+
+// bookQuestions('Harry Potter')('Dumbledore', 'Harry Potter and the Chamber of secrets')
+// bookQuestions('Life of Pi')('Richard Parker')
+
+
 
 /**
  Immediately Invoked Function Expressions (IIFE)
@@ -438,34 +528,30 @@ console.log(phone)
 // //You can only call an iffe once, because the function is not assigned to a variable, and that is what we want here
 // // They also don't interfere with other variables in the global execution context.
 
-// function game () {
+// function game() {
 // 	var score = Math.random() * 10;
 // 	console.log(score >= 5);
 // }
-//
 // game()
 
+// (function (goodLuck) {
+// 	let score = Math.random() * 10;
+// 	console.log(score >= 5 - goodLuck)
+// })(5)
+
 // (function () {
-// 	var score = Math.random() * 10;
-// 	console.log(score >= 5);
-// })();
-// // console.log(score) --Can't see the score here because it is outside the scope of the function
-//
-// (
-// 	function (goodLuck) {
-// 		var score = Math.random() * 10;
-// 		console.log(score >= 5 - goodLuck);
-// 	}
-// )(5);
-//
-//
-// //My example
+// 	let score = Math.random() * 10;
+// 	console.log(score >= 5)
+// })()
+// console.log(score) --Can't see the score here because it is outside the scope of the function
+
+//My example
 // (
 // 	function (el) {
-// 		var realAge = 2019 - el;
+// 		var realAge = 2060 - el;
 // 		console.log(realAge);
 // 	}
-// )(1949);
+// )(1980);
 // console.log(realAge)
 
 /**
@@ -476,8 +562,9 @@ console.log(phone)
 //after the function is returned, it is taken off the execution stack, so we can't access the variables. right? nope. the secret to closures is
 //that we're storing those variables, so they're still in the same scope chain as they were before. it still sits there in memory and can be accessed
 //the current execution context has closed in on the outer variable object so it can use it, and that's why it's called a closure
+//the scope chain will always stay intact 
 
-// function retirement (retirementAge) {
+// function retirement(retirementAge) {
 // 	let a = ' years left until retirement.';
 // 	return function (yearOfBirth) {
 // 		let age = 2019 - yearOfBirth;
@@ -485,16 +572,53 @@ console.log(phone)
 // 		//in the outer function
 // 	};
 // }
-//
+
 // let retirementUS = retirement(66);
 // retirementUS(1980);
-//
+
 // let retirementGermany = retirement(65);
 // let retirementIceland = retirement(67);
 // retirementGermany(1980);
 // retirementIceland(1980);
-//
-// function interviewQuestion (job) {
+
+// function raiseAGlass(drinkingAge) {
+// 	let disclaimer = ' years until you can buy alcohol.'
+// 	return function (yourAge) {
+// 		let age = 2019 - yourAge
+// 		console.log(drinkingAge - age + disclaimer)
+// 	}
+// }
+// let drinkingInUS = raiseAGlass(21)
+// let drinkingInEurope = raiseAGlass(18)
+// drinkingInUS(2017)
+// drinkingInEurope(2014)
+
+// function interviewQuestion(job) {
+// 	let a = ' knows how things are supposed to look.';
+// 	let b = 'As a developer, '
+// 	let c = ' thinks life is extremely unfair.'
+// 	let d = ' works too hard.'
+// 	let e = 'Wow, that\'s really cool, '
+// 	return function (name) {
+// 		if (job === 'designer') {
+// 			console.log(name + a)
+// 		} else if (job === 'developer') {
+// 			console.log(b + name + c)
+// 		} else if (job === 'CPA') {
+// 			console.log(name + d)
+// 		} else {
+// 			console.log(e + name)
+// 		}
+// 	}
+// }
+
+// interviewQuestion('designer')('Mason')
+// interviewQuestion('developer')('Daniel')
+// let cpaQuestion = interviewQuestion('cpa')
+// interviewQuestion('Pork Sword Swallower')('Donnie')
+
+
+// function interviewQuestion(job) {
 // 	let des = ', can you please explain what UX design is?';
 // 	let teach = 'What subject do you teach, ';
 // 	let shrug = ', what do you do?';
@@ -508,65 +632,64 @@ console.log(phone)
 // 		}
 // 	};
 // }
-//
+
 // interviewQuestion('designer')('Dustin');
 // interviewQuestion('teacher')('Frannie');
 // interviewQuestion()('Julie');
-//
+
 // //OR
-//
+
 // let interviewQuestionDesigner = interviewQuestion('designer');
 // let interviewQuestionTeacher = interviewQuestion('teacher');
 // let interviewQuestionIDK = interviewQuestion();
 // interviewQuestionDesigner('Mason');
 // interviewQuestionIDK('John');
 // interviewQuestionTeacher('Samantha');
-//
-// function init () { //original function
+
+// function init(job) { //original function
 // 	let name = 'Daniel'; //variable created by init()
-//
-// 	function display (lastName) { //inner function inside init(), this is a CLOSURE
-// 		alert(name); //alerting 'name' which the closure has access to even though it's outside its own scope
-// 		             //it's in the scope of its parent
+
+// 	function display(lastName) { //inner function inside init(), this is a CLOSURE
+// 		alert(name + lastName + ' is a good ' + job); //alerting 'name' which the closure has access to even though it's outside its own scope
+// 		//it's in the scope of its parent
 // 	}
-// 	display(); //evaluate the closure
-// 			   //in this example, I'm not returning the closure, so I have to call it here.
-// 	           //otherwise, I'd return the closure, and then call it down with the original
-// 	           //function like this: init()()
+// 	display(' Ridley'); //evaluate the closure
+// 	//in this example, I'm not returning the closure, so I have to call it here.
+// 	//otherwise, I'd return the closure, and then call it down with the original
+// 	//function like this: init()()
 // }
-//
-// init();//evaluate the original function
 
-// 	if(job === 'designer') {
-// 		return function (name, title) {
-// 			console.log(name + ', since you are a ' + title + ', can you please explain what UX design is?')
-// 		}
+// init('developer');//evaluate the original function
 
-// 	} else if(job === 'developer') {
-// 		return function (name, title) {
-// 			console.log('His name is ' + name + ', and he is a ' + title + '.')
-// 		}
+// if (job === 'designer') {
+// 	return function (name, title) {
+// 		console.log(name + ', since you are a ' + title + ', can you please explain what UX design is?')
 // 	}
 
+// } else if (job === 'developer') {
+// 	return function (name, title) {
+// 		console.log('His name is ' + name + ', and he is a ' + title + '.')
+// 	}
 // }
+
 
 /**
  Bind, Call, and Apply
  **/
-//
-// var emmett = {
-// 	name: 'Emmett',
+
+// var john = {
+// 	name: 'John',
 // 	age: 26,
 // 	job: 'teacher',
 // 	presentation: function (style, timeOfDay) {
-// 		if(style === 'formal') {
-// 			console.log('Good ' + timeOfDay + ', Ladies and Gentleman! I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.')
-// 		} else if(style === 'friendly') {
-// 			console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '!' )
+// 		if (style === 'formal') {
+// 			console.log('Good ' + timeOfDay + ', Ladies and Gentleman! I\'m ' + this.name + '; I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.')
+// 		} else if (style === 'friendly') {
+// 			console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '!')
 // 		}
 // 	}
 // }
-//
+
 // var emily = {
 // 	name: 'Emily',
 // 	age: 35,
@@ -575,45 +698,49 @@ console.log(phone)
 // 		console.log(2019 - this.age)
 // 	}
 // }
-//
+
+// john.presentation('formal', 'morning')
+// john.presentation.call(emily, 'friendly', 'afternoon') //the first argument of the call() method is setting the 'this' variable. So now, in the john object, it is 
+// //changed from john to emily. So, this.name = emily not john, and this.job = designer not teacher	
+
 // var erin = {
 // 	age: 38,
 // 	name: 'Erin',
 // 	job: 'CPA'
 // }
-//
-// emmett.presentation('formal', 'morning')
-//
-// emmett.presentation.call(emily, 'friendly', 'afternoon')//we used the call method. this is called 'method borrowing.' we borrowed the call method from emmett
-// emmett.presentation.apply(emily, ['friendly', 'early morning'])//this is the apply method. Same as call basically, but accepts an array
-//
+
+// john.presentation('formal', 'morning')
+
+// john.presentation.call(emily, 'friendly', 'afternoon')//we used the call method. this is called 'method borrowing.' we borrowed the call method from john
+// john.presentation.apply(emily, ['friendly', 'early morning'])//this is the apply method. Same as call basically, but accepts an array
+
 // emily.calcYear()
-//
-// emily.calcYear.call(emmett)//using the call method again. this time emmett borrows it from emily
+
+// emily.calcYear.call(john)//using the call method again. this time john borrows it from emily
 // emily.calcYear.call(erin)
-//
-// var emmettFriendly = emmett.presentation.bind(emmett, 'friendly')
-// var emilyFormal = emmett.presentation.bind(emily, 'formal')
-// var erinFormal = emmett.presentation.bind(erin, 'formal')
+
+// var johnFriendly = john.presentation.bind(john, 'friendly')//here I'm using bind to go ahead and set the style
+// var emilyFormal = john.presentation.bind(emily, 'formal')
+// var erinFormal = john.presentation.bind(erin, 'formal')
 // emilyFormal('evening')
-// emmettFriendly('evening')
-// emmettFriendly('afternoon')
+// johnFriendly('evening')
+// johnFriendly('afternoon')
 // erinFormal('morning')
-//
+
 // let years = [1990, 1965, 1937, 2005, 1998, 1981, 1980];
-//
-// function arrayCalc (arr, fn) {
+
+// function arrayCalc(arr, fn) {
 // 	let arrRes = [];
 // 	for (let i = 0; i < arr.length; i++) {
 // 		arrRes.push(fn(arr[i]));
 // 	}
 // 	return arrRes;
 // }
-//
-// function calculateAge (el) {
+
+// function calculateAge(el) {
 // 	return 2019 - el;
 // }
-// function isFullAge (limit, el) {
+// function isFullAge(limit, el) {
 // 	return el >= limit;
 // }
 // var ages = arrayCalc(years, calculateAge)
