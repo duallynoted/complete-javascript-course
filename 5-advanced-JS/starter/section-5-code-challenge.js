@@ -147,12 +147,20 @@
             console.log(i + ':' + this.answers[i])
         }
     }
-    Question.prototype.checkAnswer = function (ans) {
+    Question.prototype.checkAnswer = function (ans, callback) {
+        let sc;
         if (ans === this.correct) {
             console.log('Great jaaaaaaooooooorrrrrrrb!')
+            sc = callback(true)
         } else {
             console.log('Amscray')
+            sc = callback(false)
         }
+        this.displayScore(sc)
+    }
+
+    Question.prototype.displayScore = function (currentScore) {
+        console.log('Your current score is ' + currentScore + ' -------------------------')
     }
 
     let q1 = new Question('What does padding usually control?', [' text', ' margins', ' borders'], 0)
@@ -160,13 +168,25 @@
     let q3 = new Question('If you don\'t clear your floats, what happens?', [' everything moves left', ' everything moves right', ' nothing renders properly'], 2)
     let questions = [q1, q2, q3]
 
+    function score() {
+        let sc = 0;
+        return function (correct) {
+            if (correct) {
+                sc++;
+            }
+            return sc;
+        }
+    }
+
+    let scoreKeeper = score()
+
     function nextQuestion() {
         let n = Math.floor(Math.random() * questions.length)
         questions[n].displayQuestion()
         let answer = prompt('Choose correct answer')
 
-        if (answer !== 'exit') {
-            questions[n].checkAnswer(parseInt(answer))
+        if (answer !== 'stop') {
+            questions[n].checkAnswer(parseInt(answer), scoreKeeper)
             nextQuestion()
         }
     }
