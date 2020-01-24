@@ -9,7 +9,7 @@ let uiController = (function () {
         inputType: '.add__type',
         inputDescription: '.add__description',
         inputValue: '.add__value',
-        button: '.add__btn'
+        inputButton: '.add__btn'
     }
     return {
         getInput: function () {
@@ -28,7 +28,7 @@ let uiController = (function () {
 
 //GLOBAL APP CONTROLLER
 let appController = (function (budgetCtrl, uiCtrl) {
-    let DOM = uiCtrl.getDOMStrings()
+    let DOM = uiCtrl.getDOMStrings() //calling it DOM here. this is the result of the function call, and it is stored in DOM, so below it is DOM.inputButton
     let ctrlAddItem = function () {
         //1. Get the field input data
         let input = uiCtrl.getInput()
@@ -42,7 +42,7 @@ let appController = (function (budgetCtrl, uiCtrl) {
 
         //5. Display the budget on the UI
     }
-    document.querySelector(DOM.button).addEventListener('click', ctrlAddItem)
+    document.querySelector(DOM.inputButton).addEventListener('click', ctrlAddItem)
     document.addEventListener('keypress', function (event) {
         if (event.keyCode === 13 || event.which === 13) {
             ctrlAddItem()
