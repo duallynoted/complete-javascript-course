@@ -59,15 +59,54 @@ let uiController = (function () {
         inputType: '.add__type',
         inputDescription: '.add__description',
         inputValue: '.add__value',
-        inputButton: '.add__btn'
+        inputButton: '.add__btn',
+        incomeContainer: '.income__list',
+        expensesContainer: '.expenses__list',
     }
     return {
         getInput: function () {
             return {
                 type: document.querySelector(DOMStrings.inputType).value, //will be either "inc" or "exp"
                 description: document.querySelector(DOMStrings.inputDescription).value,
-                value: document.querySelector(DOMStrings.inputValue).value
+                value: parseFloat(document.querySelector(DOMStrings.inputValue).value)
             }
+        },
+
+        addListItem: function (obj, type) {
+            let htmlString, newHTML, element;
+            //create html string with placeholder text
+            if (type === 'inc') {
+                element = DOMStrings.incomeContainer
+                htmlString = '<div class="item clearfix" id="income-%id%"> <div class="item__description">%description%</div>' +
+                    '<div class="right clearfix"> <div class="item__value">%value%</div> <div class="item__delete">' +
+                    '<button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button> </div> </div> </div>'
+            }
+            if (type === 'exp') {
+                element = DOMStrings.expensesContainer
+                htmlString = '<div class="item clearfix" id="expense-%id%"> <div class="item__description">%description%</div>' +
+                    '<div class="right clearfix"> <div class="item__value">%value%</div> <div class="item__percentage">21%</div>' +
+                    '<div class="item__delete"> <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>' +
+                    '</div> </div> </div>'
+            }
+            //replace the placeholder text with actual data
+            newHTML = htmlString.replace('%id%', obj.id)
+            newHTML = newHTML.replace('%description%', obj.description)
+            newHTML = newHTML.replace('%value%', obj.value)
+
+            // insert the html in to the DOM
+            document.querySelector(element).insertAdjacentHTML('beforeend', newHTML)
+        },
+
+        clearFields: function () {
+            let fields, fieldsArray;
+            fields = document.querySelectorAll(DOMStrings.inputDescription + ', ' + DOMStrings.inputValue)
+            fieldsArray = Array.prototype.slice.call(fields)
+            fieldsArray.forEach(function (current, index, array) {
+                current.value = ""
+            })
+            fieldsArray[0].focus()
+            console.log(fields, fieldsArray)
+
         },
         getDOMStrings: function () {
             return DOMStrings;
@@ -87,18 +126,27 @@ let appController = (function (budgetCtrl, uiCtrl) {
         })
     }
 
+    let updateBudget = function () {
+        //1. Calculate the budget
+
+        //2. return the budget
+
+        //3. Display the budget on the UI
+    }
     let ctrlAddItem = function () {
         let input, newItem;
         //1. Get the field input data
         input = uiCtrl.getInput()
-
-        //2. Add item to budget controller
-        newItem = budgetCtrl.addItem(input.type, input.description, input.value)
-        //3. Add the new item to the UI
-
-        //4. Calculate the budget
-
-        //5. Display the budget on the UI
+        if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
+            //2. Add item to budget controller
+            newItem = budgetCtrl.addItem(input.type, input.description, input.value)
+            //3. Add the new item to the UI
+            uiController.addListItem(newItem, input.type)
+            //4. clear the filds
+            uiController.clearFields()
+            //5. Calculate and update budget
+            updateBudget()
+        }
     }
 
     return {
