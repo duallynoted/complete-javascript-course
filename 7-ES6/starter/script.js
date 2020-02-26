@@ -148,8 +148,31 @@ const box6 = {
         })
     }
 }
-// box6.clickMe()
+box6.clickMe()
 
+const box2 = {
+    color: 'blue',
+    position: 2,
+    clickMe: function () {
+        document.querySelector('.blue').addEventListener('click', () => {
+            let string = `This is box number ${this.position}, and it is ${this.color}.`
+            alert(string)
+        })
+    }
+}
+box2.clickMe()
+
+const box3 = {
+    color: 'orange',
+    position: 3,
+    clickMe: function () {
+        document.querySelector('.orange').addEventListener('click', () => {
+            let string = `Dang 'ol ${this.color} box is number ${this.position}, man.`
+            let strPrompt = prompt(string, 'orange')
+        })
+    }
+}
+box3.clickMe()
 /*
 const box66 = {
     color: 'green',
@@ -183,8 +206,123 @@ Person.prototype.myFriends6 = function (friends) {
     console.log(arr)
 }
 new Person('Daniel').myFriends6(friends)
-/*Lecture: Strings */
-/*Lecture: Strings */
-/*Lecture: Strings */
+
+
+/*Lecture: Destructuring */
+
+//es5
+
+// var john = ['John', 26]
+// var name = john[0]
+// var age = john[1]
+
+//es6
+const [name, age] = ['Amy', 26]
+console.log(name, age)
+
+
+const objection = {
+    firstName: 'Daniel',
+    lastName: 'Ridley',
+    politicalAffiliation: 'democrat'
+}
+const { firstName, lastName, politicalAffiliation: polffil } = objection
+console.log(firstName, lastName, polffil)
+
+const { firstName: a, lastName: b } = objection
+console.log(a, b)
+
+function calcAgeRetirment(year) {
+    const age = new Date().getFullYear() - year
+    return [age, 65 - age]
+}
+const [age2, retirement] = calcAgeRetirment(1980)
+
+console.log(age2, retirement)
+
+
+
+/*Lecture: Arrays */
+
+// const boxes = document.querySelectorAll('.box')
+
+// //es5
+
+// // var boxesArr5 = Array.prototype.slice.call(boxes)
+// // boxesArr5.forEach(function (cur) {
+// //     cur.style.backgroundColor = 'dodgerblue'
+// // })
+
+
+// //es6
+
+// const boxesArr6 = Array.from(boxes)
+// boxesArr6.forEach(element => element.style.backgroundColor = 'dodgerBlue')
+
+// //es5
+
+// // for (let i = 0; i < boxesArr5.length; i++) {
+// //     if (boxesArr5[i].className === 'box blue') {
+// //         continue;
+// //     }
+// //     boxesArr5[i].textContent = 'I changed to blue!'
+// // }
+
+// //es6 forOf
+// for (const cur of boxesArr6) {
+//     if (cur.className.includes('blue')) {
+//         continue;
+//     }
+//     cur.textContent = 'I have changed!'
+// }
+
+// //es5
+
+// var ages = [12, 17, 8, 21, 14, 11]
+// var full = ages.map(function (cur) {
+//     return cur >= 18
+// })
+// console.log(full.indexOf(true))
+// full.indexOf(true)
+// console.log(ages[full.indexOf(true)])
+
+// //es6
+
+// console.log(ages.findIndex(cur => cur >= 18))
+// console.log(ages.find(cur => cur >= 18))
+
+
+/*Lecture: Spread Operator */
+function addFourAges(a, b, c, d) {
+    return a + b + c + d
+}
+
+var sum1 = addFourAges(18, 30, 12, 21)
+console.log(sum1)
+
+//es5
+var ages = [18, 30, 12, 21]
+var sum2 = addFourAges.apply(null, ages)
+console.log(sum2)
+
+//es6
+const sum3 = addFourAges(...ages)
+console.log(sum3)
+
+const familySmith = ['John', 'Jane', 'Mark']
+const familyMiller = ['Mary', 'Bob', 'Ann']
+const bigFamily = [...familySmith, 'Lily', ...familyMiller]
+console.log(bigFamily)
+
+const h = document.querySelector('h1')
+const boxes = document.querySelectorAll('.box')
+const all = [h, ...boxes]
+
+Array.from(all).forEach(cur => cur.style.color = 'purple')
+
+
+
+
+
 /*Lecture: Strings */
 
