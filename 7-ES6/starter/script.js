@@ -124,55 +124,55 @@
 //arrow functions do not get a `this` keyword, they use the `this` keyword of the function they're written in
 
 //es5
-var box5 = {
-    color: 'green',
-    position: 1,
-    clickMe: function () {
-        var self = this;
-        document.querySelector('.green').addEventListener('click', function () {
-            var str = 'This is box number ' + self.position + ' and it is ' + self.color
-            alert(str)
-        })
-    }
-}
-// box5.clickMe()
+// var box5 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {
+//         var self = this;
+//         document.querySelector('.green').addEventListener('click', function () {
+//             var str = 'This is box number ' + self.position + ' and it is ' + self.color
+//             alert(str)
+//         })
+//     }
+// }
+// // box5.clickMe()
 
-//es6
-const box6 = {
-    color: 'green',
-    position: 1,
-    clickMe: function () {
-        document.querySelector('.green').addEventListener('click', () => {
-            var str = 'This is box number ' + this.position + ' and it is ' + this.color
-            alert(str)
-        })
-    }
-}
-box6.clickMe()
+// //es6
+// const box6 = {
+//     color: 'green',
+//     position: 1,
+//     clickMe: function () {
+//         document.querySelector('.green').addEventListener('click', () => {
+//             var str = 'This is box number ' + this.position + ' and it is ' + this.color
+//             alert(str)
+//         })
+//     }
+// }
+// box6.clickMe()
 
-const box2 = {
-    color: 'blue',
-    position: 2,
-    clickMe: function () {
-        document.querySelector('.blue').addEventListener('click', () => {
-            let string = `This is box number ${this.position}, and it is ${this.color}.`
-            alert(string)
-        })
-    }
-}
-box2.clickMe()
+// const box2 = {
+//     color: 'blue',
+//     position: 2,
+//     clickMe: function () {
+//         document.querySelector('.blue').addEventListener('click', () => {
+//             let string = `This is box number ${this.position}, and it is ${this.color}.`
+//             alert(string)
+//         })
+//     }
+// }
+// box2.clickMe()
 
-const box3 = {
-    color: 'orange',
-    position: 3,
-    clickMe: function () {
-        document.querySelector('.orange').addEventListener('click', () => {
-            let string = `Dang 'ol ${this.color} box is number ${this.position}, man.`
-            let strPrompt = prompt(string, 'orange')
-        })
-    }
-}
-box3.clickMe()
+// const box3 = {
+//     color: 'orange',
+//     position: 3,
+//     clickMe: function () {
+//         document.querySelector('.orange').addEventListener('click', () => {
+//             let string = `Dang 'ol ${this.color} box is number ${this.position}, man.`
+//             let strPrompt = prompt(string, 'orange')
+//         })
+//     }
+// }
+// box3.clickMe()
 /*
 const box66 = {
     color: 'green',
@@ -188,24 +188,24 @@ box66.clickMe()
 */
 
 //es5
-function Person(name) {
-    this.name = name
-}
-Person.prototype.myFriends5 = function (friends) {
-    var arr = friends.map(function (el) {
-        return this.name + ' is friends with ' + el
-    }.bind(this))
-    console.log(arr)
-}
-var friends = ['Matt', 'Jack', 'Nathan']
-new Person('Daniel').myFriends5(friends)
+// function Person(name) {
+//     this.name = name
+// }
+// Person.prototype.myFriends5 = function (friends) {
+//     var arr = friends.map(function (el) {
+//         return this.name + ' is friends with ' + el
+//     }.bind(this))
+//     console.log(arr)
+// }
+// var friends = ['Matt', 'Jack', 'Nathan']
+// new Person('Daniel').myFriends5(friends)
 
-//es6
-Person.prototype.myFriends6 = function (friends) {
-    let arr = friends.map(el => `${this.name} is friends with ${el}.`)
-    console.log(arr)
-}
-new Person('Daniel').myFriends6(friends)
+// //es6
+// Person.prototype.myFriends6 = function (friends) {
+//     let arr = friends.map(el => `${this.name} is friends with ${el}.`)
+//     console.log(arr)
+// }
+// new Person('Daniel').myFriends6(friends)
 
 
 /*Lecture: Destructuring */
@@ -217,28 +217,28 @@ new Person('Daniel').myFriends6(friends)
 // var age = john[1]
 
 //es6
-const [name, age] = ['Amy', 26]
-console.log(name, age)
+// const [name, age] = ['Amy', 26]
+// console.log(name, age)
 
 
-const objection = {
-    firstName: 'Daniel',
-    lastName: 'Ridley',
-    politicalAffiliation: 'democrat'
-}
-const { firstName, lastName, politicalAffiliation: polffil } = objection
-console.log(firstName, lastName, polffil)
+// const objection = {
+//     firstName: 'Daniel',
+//     lastName: 'Ridley',
+//     politicalAffiliation: 'democrat'
+// }
+// const { firstName, lastName, politicalAffiliation: polffil } = objection
+// console.log(firstName, lastName, polffil)
 
-const { firstName: a, lastName: b } = objection
-console.log(a, b)
+// const { firstName: a, lastName: b } = objection
+// console.log(a, b)
 
-function calcAgeRetirment(year) {
-    const age = new Date().getFullYear() - year
-    return [age, 65 - age]
-}
-const [age2, retirement] = calcAgeRetirment(1980)
+// function calcAgeRetirment(year) {
+//     const age = new Date().getFullYear() - year
+//     return [age, 65 - age]
+// }
+// const [age2, retirement] = calcAgeRetirment(1980)
 
-console.log(age2, retirement)
+// console.log(age2, retirement)
 
 
 
@@ -293,36 +293,129 @@ console.log(age2, retirement)
 
 
 /*Lecture: Spread Operator */
-function addFourAges(a, b, c, d) {
-    return a + b + c + d
-}
+// function addFourAges(a, b, c, d) {
+//     return a + b + c + d
+// }
 
-var sum1 = addFourAges(18, 30, 12, 21)
-console.log(sum1)
+// var sum1 = addFourAges(18, 30, 12, 21)
+// console.log(sum1)
+
+// //es5
+// var ages = [18, 30, 12, 21]
+// var sum2 = addFourAges.apply(null, ages)
+// console.log(sum2)
+
+// //es6
+// const sum3 = addFourAges(...ages)
+// console.log(sum3)
+
+// const familySmith = ['John', 'Jane', 'Mark']
+// const familyMiller = ['Mary', 'Bob', 'Ann']
+// const bigFamily = [...familySmith, 'Lily', ...familyMiller]
+// console.log(bigFamily)
+
+// const h = document.querySelector('h1')
+// const boxes = document.querySelectorAll('.box')
+// const all = [h, ...boxes]
+
+// Array.from(all).forEach(cur => cur.style.color = 'purple')
+
+
+// const beefPrices = [10.01, 10.05, 10.09, 10.10]
+
+// const subsTotal = addFourAges(...beefPrices)
+// console.log(subsTotal)
+
+//bad example, but I must move on:
+// const ageCalc = (birthYear) => {
+//     const currentYear = new Date().getFullYear()
+//     return currentYear - birthYear
+// }
+// const test1 = ageCalc(1945)
+// console.log(test1)
+
+// const ridleyBirthYears = [1945, 1949, 1974, 1976, 1980, 1981, 2014, 2017]
+// const test2 = ageCalc(...ridleyBirthYears)
+// console.log(test2)
+
+
+
+
+
+
+
+/*Lecture: Rest Parameters */
+
+// //es5
+// function isFullAge5() {
+//     console.log(arguments)
+//     var argsArray = Array.prototype.slice.call(arguments)
+//     argsArray.forEach(function (cur) {
+//         console.log(2016 - cur >= 18)
+//     })
+// }
+// // isFullAge5(1990, 1999, 1965)
+// // isFullAge5(1990, 1999, 1965, 2016, 1987)
+
+// //es6
+// function isFullAge6(...years) {
+//     years.forEach(cur => console.log((2019 - cur) >= 18))
+// }
+// isFullAge6(1981, 2014, 1988)
 
 //es5
-var ages = [18, 30, 12, 21]
-var sum2 = addFourAges.apply(null, ages)
-console.log(sum2)
+function isFullAge5(limit) {
+    console.log(arguments)
+    var argsArray = Array.prototype.slice.call(arguments, 1)
+    argsArray.forEach(function (cur) {
+        console.log(2011 - cur >= limit)
+    })
+}
+// isFullAge5(26, 1990, 1999, 1965)
+// isFullAge5(1990, 1999, 1965, 2016, 1987)
 
 //es6
-const sum3 = addFourAges(...ages)
-console.log(sum3)
+function isFullAge6(limit, ...years) {
+    const thisYear = new Date().getFullYear()
+    years.forEach(cur => console.log((thisYear - cur) >= limit))
+}
+isFullAge6(16, 1981, 2014, 1988, 1965, 2017)
 
-const familySmith = ['John', 'Jane', 'Mark']
-const familyMiller = ['Mary', 'Bob', 'Ann']
-const bigFamily = [...familySmith, 'Lily', ...familyMiller]
-console.log(bigFamily)
+/*Lecture: Default Parameters */
 
-const h = document.querySelector('h1')
-const boxes = document.querySelectorAll('.box')
-const all = [h, ...boxes]
+//es5
+// function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
+//     lastName === undefined ? lastName = 'Smith' : lastName = lastName
+//     nationality === undefined ? nationality = 'American' : nationality = nationality
+//     this.firstName = firstName
+//     this.lastName = lastName
+//     this.yearOfBirth = yearOfBirth
+//     this.nationality = nationality
+// }
 
-Array.from(all).forEach(cur => cur.style.color = 'purple')
+// var john = new SmithPerson('John', 1990)
+// console.log(john)
+// var emily = new SmithPerson('Emily', 1983, 'Diaz', 'Spanish')
+// console.log(emily)
 
+function RidleyPerson(firstName, yearOfBirth, lastName = 'Ridley', nationality = 'American') {
+    this.firstName = firstName
+    this.yearOfBirth = yearOfBirth
+    this.lastName = lastName
+    this.yearOfBirth = yearOfBirth
+    this.nationality = nationality
+}
 
-
+let dan = new RidleyPerson('Daniel', 1980)
+console.log(dan)
 
 
 /*Lecture: Strings */
+/*Lecture: Strings */
+/*Lecture: Strings */
+/*Lecture: Strings */
+/*Lecture: Strings */
+/*Lecture: Strings */
+/*Lecture: Strings */
+
 
