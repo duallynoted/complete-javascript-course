@@ -407,7 +407,7 @@ function RidleyPerson(firstName, yearOfBirth, lastName = 'Ridley', nationality =
 }
 
 let dan = new RidleyPerson('Daniel', 1980)
-console.log(dan)
+console.log(dan, 'that is me!')
 
 
 /*Lecture: Strings */
