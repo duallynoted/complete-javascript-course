@@ -364,22 +364,22 @@ box66.clickMe()
 // isFullAge6(1981, 2014, 1988)
 
 //es5
-function isFullAge5(limit) {
-    console.log(arguments)
-    var argsArray = Array.prototype.slice.call(arguments, 1)
-    argsArray.forEach(function (cur) {
-        console.log(2011 - cur >= limit)
-    })
-}
+// function isFullAge5(limit) {
+//     console.log(arguments)
+//     var argsArray = Array.prototype.slice.call(arguments, 1)
+//     argsArray.forEach(function (cur) {
+//         console.log(2011 - cur >= limit)
+//     })
+// }
 // isFullAge5(26, 1990, 1999, 1965)
 // isFullAge5(1990, 1999, 1965, 2016, 1987)
 
-//es6
-function isFullAge6(limit, ...years) {
-    const thisYear = new Date().getFullYear()
-    years.forEach(cur => console.log((thisYear - cur) >= limit))
-}
-isFullAge6(16, 1981, 2014, 1988, 1965, 2017)
+// //es6
+// function isFullAge6(limit, ...years) {
+//     const thisYear = new Date().getFullYear()
+//     years.forEach(cur => console.log((thisYear - cur) >= limit))
+// }
+// isFullAge6(16, 1981, 2014, 1988, 1965, 2017)
 
 /*Lecture: Default Parameters */
 
@@ -398,19 +398,79 @@ isFullAge6(16, 1981, 2014, 1988, 1965, 2017)
 // var emily = new SmithPerson('Emily', 1983, 'Diaz', 'Spanish')
 // console.log(emily)
 
-function RidleyPerson(firstName, yearOfBirth, lastName = 'Ridley', nationality = 'American') {
-    this.firstName = firstName
-    this.yearOfBirth = yearOfBirth
-    this.lastName = lastName
-    this.yearOfBirth = yearOfBirth
-    this.nationality = nationality
+// function RidleyPerson(firstName, yearOfBirth, lastName = 'Ridley', nationality = 'American') {
+//     this.firstName = firstName
+//     this.yearOfBirth = yearOfBirth
+//     this.lastName = lastName
+//     this.yearOfBirth = yearOfBirth
+//     this.nationality = nationality
+// }
+
+// let dan = new RidleyPerson('Daniel', 1980)
+// console.log(dan, 'that is me!')
+
+
+/*Lecture: Maps */
+
+const question = new Map()
+
+question.set('question', 'What is the official name latest JavaScript version?')
+question.set(1, 'ES5')
+question.set(2, 'ES6')
+question.set(3, 'ES2015')
+question.set(4, 'ES7')
+question.set('correct', 3)
+question.set(true, 'Correct answer.')
+question.set(false, 'Wrong, please try again')
+
+console.log(question.get('question'))
+// console.log(question.size)
+
+if (question.has(4)) {
+    // question.delete(4)
+    // console.log('Answer #4')
+}
+// question.clear()
+
+// question.forEach((val, key) => console.log(`This is the ${key} key, and it is set to ${val}.`))
+
+for (let [key, value] of question.entries()) {
+    if (typeof (key) === 'number') {
+        console.log(`Answer ${key}: ${value}.`)
+    }
 }
 
-let dan = new RidleyPerson('Daniel', 1980)
-console.log(dan, 'that is me!')
+// const ans = parseInt(prompt('Seal your doom.'))
+// console.log(question.get(ans === question.get('correct')))
 
 
-/*Lecture: Strings */
+
+const car = new Map()
+car.set('question 1', 'What is your favorite car that you have owned?')
+car.set('question 2', 'What is your dreamcar?')
+car.set(1, 'Honda Oddysey')
+car.set(2, 'Toyota Corrola')
+car.set(3, 'Nissan Pathfinder')
+car.set(4, 'Honda Ridgeline')
+car.set(5, 'Corvette')
+car.set(6, 'Mazda 323')
+car.set('correct', 4)
+car.set(true, 'Correct answer.')
+car.set(false, 'Wrong, please try again')
+
+
+const answer = parseInt(prompt(car.get('question 1')))
+console.log(car.get(answer === car.get('correct')))
+
+
+
+
+
+
+
+
+
+
 /*Lecture: Strings */
 /*Lecture: Strings */
 /*Lecture: Strings */
