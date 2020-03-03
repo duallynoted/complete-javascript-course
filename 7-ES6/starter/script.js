@@ -412,55 +412,123 @@ box66.clickMe()
 
 /*Lecture: Maps */
 
-const question = new Map()
+// const question = new Map()
 
-question.set('question', 'What is the official name latest JavaScript version?')
-question.set(1, 'ES5')
-question.set(2, 'ES6')
-question.set(3, 'ES2015')
-question.set(4, 'ES7')
-question.set('correct', 3)
-question.set(true, 'Correct answer.')
-question.set(false, 'Wrong, please try again')
+// question.set('question', 'What is the official name of the latest JavaScript version?')
+// question.set(1, 'ES5')
+// question.set(2, 'ES6')
+// question.set(3, 'ES2015')
+// question.set(4, 'ES7')
+// question.set('correct', 3)
+// question.set(true, 'Correct answer.')
+// question.set(false, 'Wrong, please try again')
 
-console.log(question.get('question'))
+// console.log(question.get('question'))
 // console.log(question.size)
 
-if (question.has(4)) {
-    // question.delete(4)
-    // console.log('Answer #4')
-}
+// if (question.has(4)) {
+//     // question.delete(4)
+//     // console.log('Answer #4')
+// }
 // question.clear()
 
 // question.forEach((val, key) => console.log(`This is the ${key} key, and it is set to ${val}.`))
 
-for (let [key, value] of question.entries()) {
-    if (typeof (key) === 'number') {
-        console.log(`Answer ${key}: ${value}.`)
-    }
-}
+// for (let [key, value] of question.entries()) {
+//     if (typeof (key) === 'number') {
+//         console.log(`Answer ${key}: ${value}.`)
+//     }
+// }
 
 // const ans = parseInt(prompt('Seal your doom.'))
 // console.log(question.get(ans === question.get('correct')))
 
 
 
-const car = new Map()
-car.set('question 1', 'What is your favorite car that you have owned?')
-car.set('question 2', 'What is your dreamcar?')
-car.set(1, 'Honda Oddysey')
-car.set(2, 'Toyota Corrola')
-car.set(3, 'Nissan Pathfinder')
-car.set(4, 'Honda Ridgeline')
-car.set(5, 'Corvette')
-car.set(6, 'Mazda 323')
-car.set('correct', 4)
-car.set(true, 'Correct answer.')
-car.set(false, 'Wrong, please try again')
+// const car = new Map()
+// car.set('question 1', 'What is your favorite car that you have owned?')
+// car.set('question 2', 'What is your dreamcar?')
+// car.set(1, 'Honda Oddysey')
+// car.set(2, 'Toyota Corrola')
+// car.set(3, 'Nissan Pathfinder')
+// car.set(4, 'Honda Ridgeline')
+// car.set(5, 'Corvette')
+// car.set(6, 'Mazda 323')
+// car.set('correct', 4)
+// car.set(true, 'Correct answer.')
+// car.set(false, 'Wrong, please try again')
 
 
-const answer = parseInt(prompt(car.get('question 1')))
-console.log(car.get(answer === car.get('correct')))
+// const answer = parseInt(prompt(car.get('question 1')))
+// console.log(car.get(answer === car.get('correct')))
+
+// const diets = new Map()
+
+// diets.set('question 1', 'What diet are you currently on?')
+// diets.set('question 2', 'How long have you tried to lose weight?')
+// diets.set('question 3', 'Do you work out when you try dieting?')
+// diets.set('question 4', 'How much weight are you looking to lose?')
+// diets.set(1, '80 Day Obsession')
+// diets.set(2, '39 years.')
+// diets.set(3, 'Weight Watchers')
+// diets.set(4, 'Keto Diet')
+// diets.set(5, 'Everything in moderation')
+// diets.set('correct1', 1)
+// diets.set(true, 'Oh, nice.')
+// diets.set(false, 'Have you heard of Autumn Calabrese?')
+// diets.set('correct2', 2)
+// diets.set(true, 'Wow, that\'s tough.')
+// diets.set(false, 'Looking good, then.')
+// // diets.set('correct', 1)
+// // diets.set(true, 'Oh, nice.')
+// // diets.set(false, 'Have you heard of Autumn Calabrese?')
+// // diets.set('correct', 1)
+// // diets.set(true, 'Oh, nice.')
+// // diets.set(false, 'Have you heard of Autumn Calabrese?')
+// const ans1 = parseInt(prompt(diets.get('question 1')))
+// console.log(diets.get(ans1 === diets.get('correct1')))
+// const ans2 = parseInt(prompt(diets.get('question 2')))
+// console.log(diets.get(ans2 === diets.get('correct2')))
+// const ans3 = parseInt(prompt(diets.get('question 3')))
+// console.log(diets.get(ans3 === diets.get('correct')))
+// const ans4 = parseInt(prompt(diets.get('question 4')))
+// console.log(diets.get(ans4 === diets.get('correct')))
+
+
+/*Lecture: Classes */
+
+//es5
+var Person5 = function (name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+
+Person5.prototype.calculateAge = function () {
+    var age = new Date().getFullYear() - this.yearOfBirth
+    console.log(age)
+}
+var dan5 = new Person5('Dan', 1980, 'Software Engineer')
+
+
+//es6
+
+class Person6 {
+    constructor(name, yearOfBirth, job) {
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+    }
+    calculateAge() {
+        var age = new Date().getFullYear() - this.yearOfBirth
+        console.log(age)
+    }
+    static greeting() {
+        console.log('Hey there.')
+    }
+}
+const dan6 = new Person6('Dan', 1980, 'Software Engineer')
+Person6.greeting()
 
 
 
@@ -468,10 +536,6 @@ console.log(car.get(answer === car.get('correct')))
 
 
 
-
-
-
-/*Lecture: Strings */
 /*Lecture: Strings */
 /*Lecture: Strings */
 /*Lecture: Strings */
