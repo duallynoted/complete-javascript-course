@@ -498,48 +498,159 @@ box66.clickMe()
 /*Lecture: Classes */
 
 //es5
-var Person5 = function (name, yearOfBirth, job) {
-    this.name = name;
-    this.yearOfBirth = yearOfBirth;
-    this.job = job;
-}
+// var Person5 = function (name, yearOfBirth, job) {
+//     this.name = name;
+//     this.yearOfBirth = yearOfBirth;
+//     this.job = job;
+// }
 
-Person5.prototype.calculateAge = function () {
-    var age = new Date().getFullYear() - this.yearOfBirth
-    console.log(age)
-}
-var dan5 = new Person5('Dan', 1980, 'Software Engineer')
+// Person5.prototype.calculateAge = function () {
+//     var age = new Date().getFullYear() - this.yearOfBirth
+//     console.log(age)
+// }
+// var dan5 = new Person5('Dan', 1980, 'Software Engineer')
+// dan5.calculateAge()
 
 
 //es6
 
-class Person6 {
-    constructor(name, yearOfBirth, job) {
+// class Person6 {
+//     constructor(name, yearOfBirth, job) {
+//         this.name = name;
+//         this.yearOfBirth = yearOfBirth;
+//         this.job = job;
+//     }
+//     calculateAge() {
+//         var age = new Date().getFullYear() - this.yearOfBirth
+//         console.log(age)
+//     }
+//     static greeting() {
+//         console.log('Hey there.')
+//     }
+// }
+// const dan6 = new Person6('Dan', 1980, 'Software Engineer')
+// Person6.greeting()
+// dan6.calculateAge()
+
+// class ThisIsReact {
+//     constructor(getIt, stopNotGettingIt) {
+//         this.getIt = getIt;
+//         this.stopNotGettingIt = stopNotGettingIt
+//     }
+//     renderThis() {
+//         let ans = this.getIt * (this.stopNotGettingIt * this.getIt)
+//         console.log(ans)
+//     }
+// }
+
+// const myComponent1 = new ThisIsReact('Got it now?', true)
+// const myComponent2 = new ThisIsReact(55, 49)
+// console.log(myComponent1)
+// myComponent2.renderThis()
+
+
+
+
+
+
+
+/*Lecture: Classes and Subclasses */
+
+//es5
+// var Person5 = function (name, yearOfBirth, job) {
+//     this.name = name;
+//     this.yearOfBirth = yearOfBirth;
+//     this.job = job;
+// }
+
+// Person5.prototype.calculateAge = function () {
+//     var age = new Date().getFullYear() - this.yearOfBirth
+//     console.log(age)
+// }
+// var dan5 = new Person5('Dan', 1980, 'Software Engineer')
+// dan5.calculateAge()
+
+// var Athelete5 = function (name, yearOfBirth, job, olympicGames, medals) {
+//     Person5.call(this, name, yearOfBirth, job)
+//     this.olympicGames = olympicGames
+//     this.medals = medals
+// }
+
+// Athelete5.prototype = Object.create(Person5.prototype)
+// Athelete5.prototype.wonMedal = function () {
+//     this.medals++;
+//     console.log(this.medals)
+// }
+// var johnAthelete5 = new Athelete5('John', 1990, 'swimmer', 3, 14)
+// johnAthelete5.calculateAge()
+// johnAthelete5.wonMedal()
+
+
+// //es6
+// class Person6 {
+//     constructor(name, yearOfBirth, job) {
+//         this.name = name;
+//         this.yearOfBirth = yearOfBirth;
+//         this.job = job;
+//     }
+//     calculateAge() {
+//         var age = new Date().getFullYear() - this.yearOfBirth
+//         console.log(age)
+//     }
+//     static greeting() {
+//         console.log('Hey there.')
+//     }
+// }
+// const dan6 = new Person6('Dan', 1980, 'Software Engineer')
+// Person6.greeting()
+// dan6.calculateAge()
+
+// class Athelete6 extends Person6 {
+//     constructor(name, yearOfBirth, job, olympicGames, medals) {
+//         super(name, yearOfBirth, job);
+//         this.olympicGames = olympicGames;
+//         this.medals = medals;
+//     }
+//     wonMedal() {
+//         this.medals++;
+//         console.log(this.medals)
+//     }
+// }
+// const john6 = new Athelete6('John', 1990, 'swimmer', 3, 10)
+// john6.wonMedal()
+// john6.calculateAge()
+// Athelete6.greeting()
+
+
+/*Coding Challenge*/
+
+//I'm in charge of Parks and Rec. I'm mufun' Tikki Tom Tom Haverford
+
+//3 parks: Edgewood--1999, Ramsay--1984, Cane Creek--2013
+//4 streets: Shipley Rd--1980, Buffalo Valley Rd--2014, Denton Ave--2009, Summit Ave--1964
+
+class Park {
+    constructor(name, yearBuilt) {
         this.name = name;
-        this.yearOfBirth = yearOfBirth;
-        this.job = job;
-    }
-    calculateAge() {
-        var age = new Date().getFullYear() - this.yearOfBirth
-        console.log(age)
-    }
-    static greeting() {
-        console.log('Hey there.')
+        this.yearBuilt = yearBuilt;
     }
 }
-const dan6 = new Person6('Dan', 1980, 'Software Engineer')
-Person6.greeting()
 
+class ParkDetail extends Park {
+    constructor(name, yearBuilt, treeCount, area) {
+        super(name, yearBuilt)
+        this.treeCount = treeCount;
+        this.area = area;
+    }
+    treeDensity() {
+        let trees = this.treeCount / this.area
+        console.log(trees)
+    }
+}
 
-
-
-
-
-
-/*Lecture: Strings */
-/*Lecture: Strings */
-/*Lecture: Strings */
-/*Lecture: Strings */
-/*Lecture: Strings */
-
-
+const edgwoodPark = new ParkDetail('Edgewood', 1999, 11287, 6)
+const ramsayPark = new ParkDetail('Ramsay', 1984, 9500, 4)
+const caneCreekPark = new ParkDetail('Cane Creek', 2013, 5980, 4)
+edgwoodPark.treeDensity()
+ramsayPark.treeDensity()
+caneCreekPark.treeDensity()
