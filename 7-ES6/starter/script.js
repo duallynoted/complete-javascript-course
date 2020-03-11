@@ -107,10 +107,10 @@
 
 // let getGuitars = guitars.map(git => git) //if you only have one argument, you don't need parenthesis, automatically returns on one line
 // console.log(getGuitars)
-// getGuitars = guitars.map((git, index) => `My favorite guitars, in order of preference, are ${index + 1}: ${git}.`) //two or more args requires 
+// getGuitars = guitars.map((git, index) => `My favorite guitars, in order of preference, are ${index + 1}: ${git}.`) //two or more args requires
 //                                                                                                                    //parenthesis, automatically returns on one line
 // console.log(getGuitars)
-// getGuitars = guitars.map((git, index) => { //if writing on more than one line, does not automatically return, 
+// getGuitars = guitars.map((git, index) => { //if writing on more than one line, does not automatically return,
 //                                            //so you must write a block with curly braces `{}` and you must write `return` so it will return something...
 //                                            //because functions HAVE to return something. Say it again. Functions must return something.
 //     const currentYear = new Date().getFullYear()
@@ -629,97 +629,97 @@ box66.clickMe()
 //3 parks: Edgewood--1999, Ramsay--1984, Cane Creek--2013
 //4 streets: Shipley Rd--1980, Buffalo Valley Rd--2014, Denton Ave--2009, Summit Ave--1964
 
-// class ParkOrStreet {
-//     constructor(name, yearBuilt) {
-//         this.name = name;
-//         this.yearBuilt = yearBuilt;
-//     }
-// }
+class ParkOrStreet {
+    constructor(name, yearBuilt) {
+        this.name = name;
+        this.yearBuilt = yearBuilt;
+    }
+}
 
-// class ParkDetail extends ParkOrStreet {
-//     constructor(name, yearBuilt, treeCount, area) {
-//         super(name, yearBuilt)
-//         this.treeCount = treeCount;
-//         this.area = area;
-//     }
-//     treeDensity() {
-//         let trees = Math.floor(this.treeCount / this.area)
-//         console.log(`${this.name}'s tree density is: ${trees} trees per sq. mile.`)
-//     }
-//     thousandPlusTrees() {
-//         if (this.treeCount >= 10000) {
-//             console.log(`${this.name} park has more than 10,000 trees.`)
-//         }
-//     }
-// }
-// const allParks = [
-//     new ParkDetail('Edgewood', 1999, 11287, 6),
-//     new ParkDetail('Ramsay', 1984, 9500, 4),
-//     new ParkDetail('Cane Creek', 2013, 5980, 4)
-// ]
+class ParkDetail extends ParkOrStreet {
+    constructor(name, yearBuilt, treeCount, area) {
+        super(name, yearBuilt)
+        this.treeCount = treeCount;
+        this.area = area;
+    }
+    treeDensity() {
+        let trees = Math.floor(this.treeCount / this.area)
+        console.log(`${this.name}'s tree density is: ${trees} trees per sq. mile.`)
+    }
+    thousandPlusTrees() {
+        if (this.treeCount >= 10000) {
+            console.log(`${this.name} park has more than 10,000 trees.`)
+        }
+    }
+}
+const allParks = [
+    new ParkDetail('Edgewood', 1999, 11287, 6),
+    new ParkDetail('Ramsay', 1984, 9500, 4),
+    new ParkDetail('Cane Creek', 2013, 5980, 4)
+]
 
-// // edgwoodPark.thousandPlusTrees()
-// // ramsayPark.thousandPlusTrees()
-// // caneCreekPark.thousandPlusTrees()
+// edgwoodPark.thousandPlusTrees()
+// ramsayPark.thousandPlusTrees()
+// caneCreekPark.thousandPlusTrees()
 
-// class StreetDetail extends ParkOrStreet {
-//     constructor(name, yearBuilt, length, size = 3) {
-//         super(name, yearBuilt)
-//         this.length = length
-//         this.size = size
-//     }
-//     sizeClassification() {
-//         const classification = new Map()
-//         classification.set(1, 'tiny')
-//         classification.set(2, 'small')
-//         classification.set(3, 'normal')
-//         classification.set(4, 'big')
-//         classification.set(5, 'huge')
-//         console.log(`${this.name}, built in ${this.yearBuilt}, is a ${classification.get(this.size)} street.`)
-//     }
-// }
-
-
-// const allStreets = [
-//     new StreetDetail('Shipley', 1980, 17, 4),
-//     new StreetDetail('Buffalo Valley Rd', 2014, 5, 2),
-//     new StreetDetail('Denton Ave', 2009, 2, 1),
-//     new StreetDetail('Summit Ave', 1964, 7, 3),
-//     new StreetDetail('Royal Oaks', 1932, 10, 5)
-// ]
-
-// function calc(arr) {
-//     const sum = arr.reduce((acc, cur, index) => acc + cur, 0)
-//     return [sum, Math.floor(sum / arr.length)]
-// }
-
-// function reportParks(p) {
-//     console.log('--------Parks Report--------')
-//     //density
-//     p.forEach(el => el.treeDensity())
-//     //average age
-//     const ages = p.map(el => new Date().getFullYear() - el.yearBuilt)
-//     const [avgAge] = calc(ages)
-//     console.log(`Our ${p.length} parks have an average age of ${avgAge} years old.`)
-//     //>10000
-//     const i = p.map(el => el.treeCount) // I could also do this: p.map(el => el.treecount).findIndex(cur => cur >= 10,000) this is called chaining.
-//     const result = i.findIndex(cur => cur >= 10000)
-//     console.log(`${p[result].name} has more than 10,000 trees. `)//with chaining, this would be: `${p.[i].name}...`
+class StreetDetail extends ParkOrStreet {
+    constructor(name, yearBuilt, length, size = 3) {
+        super(name, yearBuilt)
+        this.length = length
+        this.size = size
+    }
+    sizeClassification() {
+        const classification = new Map()
+        classification.set(1, 'tiny')
+        classification.set(2, 'small')
+        classification.set(3, 'normal')
+        classification.set(4, 'big')
+        classification.set(5, 'huge')
+        console.log(`${this.name}, built in ${this.yearBuilt}, is a ${classification.get(this.size)} street.`)
+    }
+}
 
 
-// }
+const allStreets = [
+    new StreetDetail('Shipley', 1980, 17, 4),
+    new StreetDetail('Buffalo Valley Rd', 2014, 5, 2),
+    new StreetDetail('Denton Ave', 2009, 2, 1),
+    new StreetDetail('Summit Ave', 1964, 7, 3),
+    new StreetDetail('Royal Oaks', 1932, 10, 5)
+]
 
-// function reportStreets(s) {
-//     console.log('--------Streets Report--------')
-//     //total and average length of the streets
-//     const streetLengths = s.map(el => el.length)
-//     const [totalLength, avgLength] = calc(streetLengths)
-//     console.log(`Our town has ${s.length} streets. Their total length is ${totalLength} miles, and their average length is ${avgLength} miles.`)
-//     //size classification
-//     s.forEach(el => el.sizeClassification())
-// }
-// reportParks(allParks)
-// reportStreets(allStreets)
+function calc(arr) {
+    const sum = arr.reduce((acc, cur, index) => acc + cur, 0)
+    return [sum, Math.floor(sum / arr.length)]
+}
+
+function reportParks(p) {
+    console.log('--------Parks Report--------')
+    //density
+    p.forEach(el => el.treeDensity())
+    //average age
+    const ages = p.map(el => new Date().getFullYear() - el.yearBuilt)
+    const [avgAge] = calc(ages)
+    console.log(`Our ${p.length} parks have an average age of ${avgAge} years old.`)
+    //>10000
+    const i = p.map(el => el.treeCount) // I could also do this: p.map(el => el.treecount).findIndex(cur => cur >= 10,000) this is called chaining.
+    const result = i.findIndex(cur => cur >= 10000)
+    console.log(`${p[result].name} has more than 10,000 trees. `)//with chaining, this would be: `${p.[i].name}...`
+
+
+}
+
+function reportStreets(s) {
+    console.log('--------Streets Report--------')
+    //total and average length of the streets
+    const streetLengths = s.map(el => el.length)
+    const [totalLength, avgLength] = calc(streetLengths)
+    console.log(`Our town has ${s.length} streets. Their total length is ${totalLength} miles, and their average length is ${avgLength} miles.`)
+    //size classification
+    s.forEach(el => el.sizeClassification())
+}
+reportParks(allParks)
+reportStreets(allStreets)
 
 
 
