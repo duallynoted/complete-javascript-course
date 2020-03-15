@@ -9,146 +9,175 @@
 </head>
 
 <body>
-    <h1> </h1>
-    <script>
-        // const third = () => {
-        // 	setTimeout(() => {
-        // 		console.log('Sorry I\'m late')
-        //     },2101)
-        // }
-        // const second = () => {
-        //     setTimeout(() => {
-        //         console.log('Async hey there')
-        //     }, 2000)
-        //     third()
-        // }
-        // const first = () => {
-        //     console.log('Hey there.')
-        //     second()
-        //     console.log('The end.')
-        // }
-        // first()
-        /*Here is how the execution stack, web api, message queue, and event loop all works together:
-        * 1. the first() function is placed on to the ges(global execution stack).
-        * 2. it executes the code as it finds it, so the console.log() is the first function it executes,
-        * and that function is placed on the ges, gets returned, then pops off.
-        * 3. the next code to execute is second(), and it is placed on the ges and starts executing its code
-        * 4. it executes a setTimeout function which is then placed on the ges
-        * 5. the setTimeout creates a callback function which is placed in the web api to do its work, and
-        * the rest of the code can continue to execute.
-        * 6. the third() function is then executed and is placed on the ges, executes a setTimeout which creates
-        * a callback function that's placed in the web api, then second() is finished so it pops off the stack.
-        * 7. we get back to executing code in the first() function, the final console.log() which is placed on
-        * the ges, returned, and popped off.
-        * 8. now that the first() function has finished executing, it is then popped off of the ges
-        * 9. the callback functions created from the timeouts are sitting in the web apis, when they're done, they
-        * will go to the message queue.
-        * 10. the event loop monitors the execution stack and the message queue
-        * 11. once the ges is empty, the event loop looks for items in the message queue to place on the ges
-        * 12. our first callback function is ready to go, so the event loop puts the timer callback function on the ges
-        * 13. it begins to execute the code within it, in this case, a console.log()
-        * 14. that console.log() is placed on the ges, gets returned and pops off
-        * 15. the event loop detects another callback function in the message queue, and places it on the ges
-        * 16. --by the way--the message queue can be full of items from the web apis like requests, event handlers, other DOM events, etc.
-        * 17. it contains a console.log() that is placed on the ges, gets returned, and then pops off  */
+<h1></h1>
+<script>
+	// const third = () => {
+	// 	setTimeout(() => {
+	// 		console.log('Sorry I\'m late')
+	//     },2101)
+	// }
+	// const second = () => {
+	//     setTimeout(() => {
+	//         console.log('Async hey there')
+	//     }, 2000)
+	//     third()
+	// }
+	// const first = () => {
+	//     console.log('Hey there.')
+	//     second()
+	//     console.log('The end.')
+	// }
+	// first()
+	/*Here is how the execution stack, web api, message queue, and event loop all works together:
+    * 1. the first() function is placed on to the ges(global execution stack).
+    * 2. it executes the code as it finds it, so the console.log() is the first function it executes,
+    * and that function is placed on the ges, gets returned, then pops off.
+    * 3. the next code to execute is second(), and it is placed on the ges and starts executing its code
+    * 4. it executes a setTimeout function which is then placed on the ges
+    * 5. the setTimeout creates a callback function which is placed in the web api to do its work, and
+    * the rest of the code can continue to execute.
+    * 6. the third() function is then executed and is placed on the ges, executes a setTimeout which creates
+    * a callback function that's placed in the web api, then second() is finished so it pops off the stack.
+    * 7. we get back to executing code in the first() function, the final console.log() which is placed on
+    * the ges, returned, and popped off.
+    * 8. now that the first() function has finished executing, it is then popped off of the ges
+    * 9. the callback functions created from the timeouts are sitting in the web apis, when they're done, they
+    * will go to the message queue.
+    * 10. the event loop monitors the execution stack and the message queue
+    * 11. once the ges is empty, the event loop looks for items in the message queue to place on the ges
+    * 12. our first callback function is ready to go, so the event loop puts the timer callback function on the ges
+    * 13. it begins to execute the code within it, in this case, a console.log()
+    * 14. that console.log() is placed on the ges, gets returned and pops off
+    * 15. the event loop detects another callback function in the message queue, and places it on the ges
+    * 16. --by the way--the message queue can be full of items from the web apis like requests, event handlers, other DOM events, etc.
+    * 17. it contains a console.log() that is placed on the ges, gets returned, and then pops off  */
 
-        /*The OLD Way: Asynchronous JS with Callbacks*/
+	/*The OLD Way: Asynchronous JS with Callbacks*/
 
-        // function getRecipe () {
-        //     setTimeout(() => {
-        //     	const recipeIDs = [33, 454, 53, 22, 878]
-        //         console.log(recipeIDs)
-        //
-        //         setTimeout((id) => { //this argument is set by the 3rd argument of the setTimeOut function
-        //         	const recipe = {
-        //         		title: 'Fresh Tomato Pasta',
-        //                 publisher: 'Jonas'
-        //             }
-        //             console.log(`${id}: ${recipe.title}, cooked up by ${recipe.publisher}.`)
-        //
-        //             setTimeout( publisher => {
-        //             	const recipe = {
-        //             		title: 'Italian Pizza',
-        //                     publisher: 'Jonas'
-        //                 }
-        //                 console.log(recipe)
-        //
-        //             }, 1500, recipe.publisher)
-        //         }, 1500, recipeIDs[4]) //there is a 3rd argument here. This is what sets the argument passed in to the callback function
-        //     }, 1500);
-        // }
-        // getRecipe()
+	// function getRecipe () {
+	//     setTimeout(() => {
+	//     	const recipeIDs = [33, 454, 53, 22, 878]
+	//         console.log(recipeIDs)
+	//
+	//         setTimeout((id) => { //this argument is set by the 3rd argument of the setTimeOut function
+	//         	const recipe = {
+	//         		title: 'Fresh Tomato Pasta',
+	//                 publisher: 'Jonas'
+	//             }
+	//             console.log(`${id}: ${recipe.title}, cooked up by ${recipe.publisher}.`)
+	//
+	//             setTimeout( publisher => {
+	//             	const recipe = {
+	//             		title: 'Italian Pizza',
+	//                     publisher: 'Jonas'
+	//                 }
+	//                 console.log(recipe)
+	//
+	//             }, 1500, recipe.publisher)
+	//         }, 1500, recipeIDs[4]) //there is a 3rd argument here. This is what sets the argument passed in to the callback function
+	//     }, 1500);
+	// }
+	// getRecipe()
 
-        /*From Callback Hell to Promises*/
+	/*From Callback Hell to Promises*/
 
-        const getIds = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve([33, 454, 53, 22, 878])
-            }, 1500)
-        })
-        const getRecipe = recID => {
-            return new Promise((resolve, reject) => {
-                setTimeout((id) => {
-                    const recipe = {
-                        title: 'Fresh Tomato Pasta',
-                        publisher: 'Jonas'
-                    }
-                    resolve(`${id}: ${recipe.title}, cooked up by ${recipe.publisher}.`)
-                }, 1500, recID)
-            })
+	// const getIds = new Promise((resolve, reject) => {
+	//     setTimeout(() => {
+	//         resolve([33, 454, 53, 22, 878])
+	//     }, 1500)
+	// })
+	// const getRecipe = recID => {
+	//     return new Promise((resolve, reject) => {
+	//         setTimeout((id) => {
+	//             const recipe = {
+	//                 title: 'Fresh Tomato Pasta',
+	//                 publisher: 'Jonas'
+	//             }
+	//             resolve(`${id}: ${recipe.title}, cooked up by ${recipe.publisher}.`)
+	//         }, 1500, recID)
+	//     })
+	// }
+	// const getRelated = publisher => {
+	//     return new Promise((resolve, reject) => {
+	//         setTimeout(pub => {
+	//             const recipe = {
+	//                 title: 'Italian Pizza',
+	//                 publisher: 'Jonas'
+	//             }
+	//             resolve(`${pub}: ${recipe.title}`)
+	//         }, 1500, publisher)
+	//     })
+	// }
+	// getIds
+	//     .then(IDs => {
+	//         console.log((IDs))
+	//         return getRecipe(IDs[1])
+	//     })
+	//     .then(recipe => {
+	//         console.log(recipe)
+	//         return getRelated('Daniel Ridley')
+	//     })
+	//     .then(recipe => {
+	//         console.log(recipe)
+	//     })
+	//     .catch(error => {
+	//         console.log(error)
+	//     })
+
+	/*From Promises to Async/Await*/
+
+	// async function getRecipesAW() {
+	//     const IDs = await getIds;
+	//     console.log(IDs)
+	//     const recipe = await getRecipe(IDs[2])
+	//     console.log(recipe)
+	//     const related = await getRelated('Daniel')
+	//     console.log(related)
+	//
+	//     return recipe;
+	// }
+	// getRecipesAW().then((result) => console.log(`${result} It tastes amazing!`))
+
+	const getWeather = (woeId) => {
+		fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeId}/`)
+			.then(result => {
+				return result.json();
+			})
+			.then(data => {
+                const today = data.consolidated_weather[0];
+				console.log(`The weather in ${data.title} today is ${today.weather_state_name}, and a high of ${today.max_temp} degrees celsius.`);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
+	getWeather(2487956)
+    getWeather(2452078)
+	getWeather(2457170)
+
+    async function getWeatherAW (woeId) {
+		try {
+			const result = await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeId}/`)
+			const data = await result.json()
+			const tomorrow = data.consolidated_weather[1];
+			console.log(`The weather in ${data.title} tomorrow will be ${tomorrow.weather_state_name}, and a high of ${tomorrow.max_temp} degrees celsius.`);
+			return data;
+		} catch (err) {
+			console.log(`This error, "---${err}---", means something has gone horribly awry.`)
         }
-        const getRelated = publisher => {
-            return new Promise((resolve, reject) => {
-                setTimeout(pub => {
-                    const recipe = {
-                        title: 'Italian Pizza',
-                        publisher: 'Jonas'
-                    }
-                    resolve(`${pub}: ${recipe.title}`)
-                }, 1500, publisher)
-            })
-        }
-        // getIds
-        //     .then(IDs => {
-        //         console.log((IDs))
-        //         return getRecipe(IDs[1])
-        //     })
-        //     .then(recipe => {
-        //         console.log(recipe)
-        //         return getRelated('Daniel Ridley')
-        //     })
-        //     .then(recipe => {
-        //         console.log(recipe)
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
 
-        /*From Promises to Async/Await*/
-
-        async function getRecipesAW() {
-            const IDs = await getIds;
-            console.log(IDs)
-            const recipe = await getRecipe(IDs[2])
-            console.log(recipe)
-            const related = await getRelated('Daniel')
-            console.log(related)
-
-            return recipe;
-        }
-        getRecipesAW().then((result) => console.log(`${result} It tastes amazing!`))
+    }
+	getWeatherAW(2487956)
+	getWeatherAW(2452078)
+	let nashvilleData;
+	getWeatherAW(2457170).then(data => {
+		nashvilleData = data
+        console.log('Here is the full report: ', data)
+    })
 
 
 
-
-
-
-
-
-
-
-
-    </script>
+</script>
 </body>
 
 </html>
