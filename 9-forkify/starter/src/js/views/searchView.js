@@ -2,7 +2,7 @@ import { elements } from './base';
 
 export const getInput = () => elements.searchInput.value;
 
-export const renderRecipe = recipe => {
+const renderRecipe = recipe => {
 	const markup = `
 	            <li>
                     <a class="results__link" href="#${recipe.recipe_id}">
@@ -19,5 +19,6 @@ export const renderRecipe = recipe => {
 	elements.searchResList.insertAdjacentHTML('beforeend', markup)
 };
 export const renderResults = recipes => {
+	console.log('RECIPES', recipes)
 	recipes.forEach(renderRecipe);
 };
