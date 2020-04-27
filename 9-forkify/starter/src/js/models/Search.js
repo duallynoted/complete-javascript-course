@@ -17,29 +17,6 @@ export default class Search {
 	}
 }
 
-// let movies = [
-// 	{
-// 		title: 'The Princess Bride'
-// 	},
-// 	{
-// 		title: 'Rushmore'
-// 	},
-// 	{
-// 		title: 'Man of Steel'
-// 	}
-// ];
-//
-// const movieTitler = (title, limit = 3) => {
-// 	const newTitle = []
-// 	if(movies)
-// }
-//
-// if (test.length > 8) {
-// 	testSplit.reduce((acc, cur) => {
-// 		if (acc + cur.length < test.length) {
-// 			retirm;
-// 		}
-// 	}, 0);
 
 
 
